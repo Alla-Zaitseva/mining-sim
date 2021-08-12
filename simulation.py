@@ -49,6 +49,17 @@ class RepairCrew(object):
         self.field = field
         self.direction = 'Right'
 
+    def update_coord(self):
+        if self.status == self.Status.MOVING:
+            # print('  -  Car coord prev: ', self.coord)
+            road_time = self.env.now - self.prev_time
+            if self.direction == 'Right':
+                self.coord += int(road_time * self.speed)
+            else:
+                self.coord -= int(road_time * self.speed)
+            # print('  -  Car coord now: ', self.coord)
+            self.prev_time = self.env.now
+
     def setup(self):
         '''
         Логика ремонтной команды (машины)
@@ -59,6 +70,7 @@ class RepairCrew(object):
                 self.status = self.Status.MOVING
             elif self.status == self.Status.MOVING:
                 while abs(get_nearest(self.coord, self.field.explosions) - self.coord) >= 10:
+
                     if self.direction == 'Right' and abs(config.ROAD_LENGTH - self.coord) <= 10:
                         self.direction = 'Left'
                     elif self.direction == 'Left' and abs(self.coord) <= 10:
@@ -98,11 +110,8 @@ class RepairCrew(object):
                             yield self.env.timeout(time)
                     except simpy.Interrupt as i:
                         pass
-                    road_time = self.env.now - self.prev_time
-                    if self.direction == 'Right':
-                        self.coord += int(road_time * self.speed)
-                    else:
-                        self.coord -= int(road_time * self.speed)
+
+                    self.update_coord()
                 self.coord = get_nearest(self.coord, self.field.explosions)
                 self.status = self.Status.REPAIRING
             elif self.status == self.Status.REPAIRING:
@@ -142,7 +151,7 @@ class Dron(object):
         self.coord = self.repair_crew.coord
         self.t_search = (self.speed * self.flight_time) / (2 * self.speed + self.repair_crew.speed)
         self.t_back = self.flight_time - self.t_search
-    
+
     def setup(self):
         '''
         Логика дрона
@@ -151,36 +160,99 @@ class Dron(object):
         while True:
             if self.status == self.Status.WAITING:
                 self.status = self.Status.SEARCHING
-                self.direction = 'Right'
+                self.direction = 'Left'
             elif self.status == self.Status.SEARCHING:
-                while abs(get_nearest(self.coord, self.field.explosions) - self.coord) >= 10:
-                    time = min(config.ROAD_LENGTH - self.coord, self.coord) / self.speed
-                    time = min(self.t_search, time)
+
+                if self.direction == 'Right' and abs(self.coord - config.ROAD_LENGTH) <= 10:
+                    self.direction = 'Left'
+                elif self.direction == 'Left' and abs(self.coord - 0) <= 10:
+                    self.direction = 'Right'
+
+                self.real_time = 0
+                while abs(self.t_search - self.real_time) >= 5:
+
+                    if self.direction == 'Right':
+                        explosions = self.field.explosions.copy()
+                        explosions[config.ROAD_LENGTH] = 1
+                        self.nearest_point = get_nearest_right(self.coord, explosions)
+                        time = (self.nearest_point - self.coord) / self.speed
+                    else:
+                        explosions = self.field.explosions.copy()
+                        explosions[0] = 1
+                        nearest_point = get_nearest_left(self.coord, explosions)
+                        time = (self.coord - nearest_point) / self.speed
+                    time = min(self.t_search - self.real_time, time)
+                    if abs(time) < 2:
+                       break
                     self.prev_time = self.env.now
                     try:
                         yield self.env.timeout(time)
                     except simpy.Interrupt as i:
                         pass
                     delta = self.env.now - self.prev_time
+                    self.real_time += delta
                     if self.direction == 'Right':
-                        self.coord = self.coord + delta * self.speed
+                        self.coord += int(delta * self.speed)
                     else:
-                        self.coord = self.coord - delta * self.speed
+                        self.coord -= int(delta * self.speed)
+                    nearest_point = get_nearest(self.coord, self.field.explosions)
+                    if abs(self.coord - nearest_point) <= 10:
+                        self.field.explosions_found[nearest_point] = self.field.explosions[nearest_point]
+                        if self.repair_crew.status == self.repair_crew.Status.MOVING:
+                            self.field.crew_proc.interrupt('')
+                    self.repair_crew.update_coord()
+
                 self.status = self.Status.COMES_BACK
             elif self.status == self.Status.COMES_BACK:
                 if self.direction == 'Right':
                     self.direction = 'Left'
                 else:
                     self.direction = 'Right'
+                self.real_time = 0
+                while abs(self.coord - self.repair_crew.coord) >= 10:
 
-                yield self.env.timeout(self.t_back)
-                # TODO
+                    self.repair_crew.update_coord()
+
+                    if self.direction == 'Right':
+                        explosions = self.field.explosions.copy()
+                        explosions[self.repair_crew.coord] = 1
+                        explosions[config.ROAD_LENGTH] = 1
+                        nearest_point = get_nearest_right(self.coord, explosions)
+                        time = (nearest_point - self.coord) / self.speed
+                    else:
+                        explosions = self.field.explosions.copy()
+                        explosions[0] = 1
+                        explosions[self.repair_crew.coord] = 1
+                        nearest_point = get_nearest_left(self.coord, explosions)
+                        time = (self.coord - nearest_point) / self.speed
+                    time = min(self.t_back - self.real_time, time)
+                    self.prev_time = self.env.now
+                    try:
+                        yield self.env.timeout(time)
+                    except simpy.Interrupt as i:
+                        pass
+                    delta = self.env.now - self.prev_time
+                    self.real_time += delta
+                    if self.direction == 'Right':
+                        self.coord += int(delta * self.speed)
+                    else:
+                        self.coord -= int(delta * self.speed)
+                    nearest_point = get_nearest(self.coord, self.field.explosions)
+                    if abs(self.coord - nearest_point) <= 10:
+                        self.field.explosions_found[nearest_point] = self.field.explosions[nearest_point]
+                    if self.direction == 'Right' and self.coord < self.repair_crew.coord:
+                        break
+                    elif self.direction == 'Left' and self.coord > self.repair_crew.coord:
+                        break
+
                 self.coord = self.repair_crew.coord
                 self.status = self.Status.CHARGING
             elif self.status == self.Status.CHARGING:
                 yield self.env.timeout(self.charging_time)
+                self.repair_crew.update_coord()
                 self.coord = self.repair_crew.coord
                 self.status = self.Status.SEARCHING
+
 
 
 

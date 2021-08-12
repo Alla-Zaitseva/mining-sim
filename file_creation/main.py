@@ -2,7 +2,7 @@ import json
 import random
 from datetime import datetime, timedelta
 
-LENTH = 10000
+LENTH = 40000
 
 def main():
     file_json = {}
@@ -30,7 +30,7 @@ def main():
 
         file_json['Events'].append(expl)
 
-    with open('Explosions.json', 'w') as f:
+    with open('Explosions_40.json', 'w') as f:
         f.write(json.dumps(file_json, indent=4))
 
 if __name__ == '__main__':

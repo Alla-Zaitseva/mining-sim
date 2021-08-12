@@ -1,5 +1,5 @@
 MODELING_TIME = 12 * 60 * 60                # In seconds
-ROAD_LENGTH = 10000                         # In meters
+ROAD_LENGTH = 40000                         # In meters
 REPAIRING_CREW_SPEED = 30000 / 3600         # In meters per second
 REPAIRING_CREW_START_COORD = 0              # In meters
 DRON_SPEED = 60000 / 3600                   # In meters per second
@@ -17,4 +17,4 @@ REPAIRING_TIME = [
 START_TIME = '00:00:00'
 TIME_FORMAT = '%H:%M:%S'
 
-PATH_TO_EXPLOSIONS_CONFIG = '/Users/alla/Work/mining-sim/file-creation/Explosions_10.json'
+PATH_TO_EXPLOSIONS_CONFIG = '/Users/alla/Desktop/mining-sim/file_creation/Explosions_40.json'
