@@ -2,9 +2,9 @@ import json
 import random
 from datetime import datetime, timedelta
 
-LENTH = 40000
+LENTH = 50000
 
-def main():
+def main(file_name):
     file_json = {}
 
     file_json['Events'] = []
@@ -30,9 +30,11 @@ def main():
 
         file_json['Events'].append(expl)
 
-    with open('Explosions_40.json', 'w') as f:
+    with open(file_name, 'w') as f:
         f.write(json.dumps(file_json, indent=4))
 
 if __name__ == '__main__':
-    main()
+    file_name = 'Explosions_50_'
+    for i in range(1, 11):
+        main(file_name + str(i) + '.json')
 
