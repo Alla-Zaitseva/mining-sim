@@ -8,37 +8,32 @@ from bisect import bisect_left
 import numpy as np
 
 
-def get_nearest_left(coord, explosions, respons):
+def get_found_explosions(explosions, respons):
     new_explosions = {}
     for explosion_coord, explosion in explosions.items():
         if explosion.get('ID', 0) in respons:
             new_explosions[explosion_coord] = explosion
-    explosions = new_explosions
-    keys = np.array(list(explosions.keys()))
+    return new_explosions
+
+def get_nearest_left(coord, explosions, respons):
+    new_explosions = get_found_explosions(explosions, respons)
+    keys = np.array(list(new_explosions.keys()))
     return keys[keys <= coord].max()
 
 def get_nearest_right(coord, explosions, respons):
-    new_explosions = {}
-    for explosion_coord, explosion in explosions.items():
-        if explosion.get('ID', 0) in respons:
-            new_explosions[explosion_coord] = explosion
-    explosions = new_explosions
-    keys = np.array(list(explosions.keys()))
+    new_explosions = get_found_explosions(explosions, respons)
+    keys = np.array(list(new_explosions.keys()))
     return keys[keys >= coord].min()
 
 def get_nearest(coord, explosions, respons):
-    new_explosions = {}
-    for explosion_coord, explosion in explosions.items():
-        if explosion.get('ID', 0) in respons:
-            new_explosions[explosion_coord] = explosion
-    explosions = new_explosions
-    if len(explosions) == 0:
+    new_explosions = get_found_explosions(explosions, respons)
+    if len(new_explosions) == 0:
         return -10000
-    keys = np.array(list(explosions.keys()))
+    keys = np.array(list(new_explosions.keys()))
     if len(keys[keys <= coord]) == 0:
-        return get_nearest_right(coord, explosions, respons)
+        return get_nearest_right(coord, new_explosions, respons)
     if len(keys[keys >= coord]) == 0:
-        return get_nearest_left(coord, explosions, respons)
+        return get_nearest_left(coord, new_explosions, respons)
 
     nearest_left = get_nearest_left(coord, explosions, respons)
     nearest_right = get_nearest_right(coord, explosions, respons)
@@ -47,6 +42,10 @@ def get_nearest(coord, explosions, respons):
         return nearest_left
     else:
         return nearest_right
+
+def get_current_time_str(env):
+    current_time = datetime(year=1, month=1, day=1, hour=0, minute=0, second=0) + timedelta(seconds=int(env.now))
+    return current_time.strftime(config.TIME_FORMAT)
 
 class RepairCrew(object):
     class Status(Enum):
@@ -92,7 +91,7 @@ class RepairCrew(object):
                     elif self.direction == 'Left' and abs(self.coord) <= 10:
                         self.direction = 'Right'
                     try:
-                        if len(self.field.explosions_found) == 0:
+                        if len(get_found_explosions(self.field.explosions_found, self.respons)) == 0:
                             if self.direction == 'Right':
                                 explosions = self.field.explosions.copy()
                                 explosions[config.ROAD_LENGTH] = {}
@@ -134,12 +133,10 @@ class RepairCrew(object):
                 self.status = self.Status.REPAIRING
             elif self.status == self.Status.REPAIRING:
                 explosion_id = self.field.explosions[self.coord]['ID']
-                current_time = datetime(year=1, month=1, day=1, hour=0, minute=0, second=0) + timedelta(seconds=int(self.env.now))
-                print('{} {} "начало ремонта машиной {} МВЗ типа {}"'.format(current_time.strftime(config.TIME_FORMAT), self.coord, self.name,
+                print('{} {} "{}" "начало ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
                                                                   explosion_id))
                 yield self.env.timeout(self.repair_time[explosion_id])
-                current_time = datetime(year=1, month=1, day=1, hour=0, minute=0, second=0) + timedelta(seconds=int(self.env.now))
-                print('{} {} "окончание ремонта машиной {} МВЗ типа {}"'.format(current_time.strftime(config.TIME_FORMAT), self.coord, self.name,
+                print('{} {} "{}" "окончание ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
                                                                   explosion_id))
                 del self.field.explosions[self.coord]
                 self.field.explosions_found.pop(self.coord, None)
@@ -159,8 +156,9 @@ class Dron(object):
         CHARGING = 4
         pass
 
-    def __init__(self, env, field, repair_crew, speed, flight_time, charging_time):
+    def __init__(self, env, name, field, repair_crew, speed, flight_time, charging_time):
         self.env = env
+        self.name = name
         self.field = field
         self.repair_crew = repair_crew
         self.speed = speed
@@ -182,8 +180,9 @@ class Dron(object):
                 self.status = self.Status.SEARCHING
                 self.direction = 'Left'
             elif self.status == self.Status.SEARCHING:
-                current_time = datetime(year=1, month=1, day=1, hour=0, minute=0, second=0) + timedelta(seconds=int(self.env.now))
-                print('{} {} "начало патрулирования БПЛА"'.format(current_time.strftime(config.TIME_FORMAT), self.coord))
+                print('{} {} "{}" "начало патрулирования БПЛА"'.format(get_current_time_str(self.env),
+                                                                       self.coord,
+                                                                       self.name))
 
                 if self.direction == 'Right' and abs(self.coord - config.ROAD_LENGTH) <= 10:
                     self.direction = 'Left'
@@ -218,9 +217,10 @@ class Dron(object):
                     nearest_point = get_nearest(self.coord, self.field.explosions, [0, 1, 2, 3, 4])
                     if abs(self.coord - nearest_point) <= 10:
                         self.field.explosions_found[nearest_point] = self.field.explosions[nearest_point]
-                        current_time = datetime(year=1, month=1, day=1, hour=0, minute=0, second=0) + timedelta(seconds=int(self.env.now))
-                        print('{} {} "обнаружен взрыв типа {}"'.format(current_time.strftime(config.TIME_FORMAT), nearest_point,
-                                                             self.field.explosions_found[nearest_point]['ID']))
+                        print('{} {} "{}" "обнаружен взрыв типа {}"'.format(get_current_time_str(self.env),
+                                                                            nearest_point,
+                                                                            self.name,
+                                                                            self.field.explosions_found[nearest_point]['ID']))
                         if self.repair_crew.status == self.repair_crew.Status.MOVING:
                             self.field.crew_proc.interrupt('')
                     self.repair_crew.update_coord()
@@ -231,6 +231,10 @@ class Dron(object):
                     self.direction = 'Left'
                 else:
                     self.direction = 'Right'
+                
+                if config.DEBUG:
+                    print('#Debug# {} "{}" разворот теперь в {}'.format(get_current_time_str(self.env), self.name, self.direction))
+
                 self.real_time = 0
                 while abs(self.coord - self.repair_crew.coord) >= 10:
                     self.repair_crew.update_coord()
@@ -270,8 +274,9 @@ class Dron(object):
                 self.coord = self.repair_crew.coord
                 self.status = self.Status.CHARGING
             elif self.status == self.Status.CHARGING:
-                current_time = datetime(year=1, month=1, day=1, hour=0, minute=0, second=0) + timedelta(seconds=int(self.env.now))
-                print('{} {} "окончание патрулирования БПЛА"'.format(current_time.strftime(config.TIME_FORMAT), self.coord))
+                print('{} {} "{}" "окончание патрулирования БПЛА"'.format(get_current_time_str(self.env),
+                                                                          self.coord,
+                                                                          self.name))
                 yield self.env.timeout(self.charging_time)
                 self.repair_crew.update_coord()
                 self.coord = self.repair_crew.coord
@@ -289,14 +294,14 @@ class Field(object):
         self.env = env
         self.need_drone = need_drone
         # Объект служба ремонта (машина)
-        self.crew = RepairCrew(env, '1', config.REPAIRING_CREW_SPEED, config.REPAIRING_TIME,
-                               config.REPAIRING_CREW_START_COORD, self, [0, 1, 2]) # TODO: fix unnormal work
-        self.crew_2 = RepairCrew(env, '2', config.REPAIRING_CREW_SPEED, config.REPAIRING_TIME,
+        self.crew = RepairCrew(env, 'Машина 1', config.REPAIRING_CREW_SPEED, config.REPAIRING_TIME,
+                               config.REPAIRING_CREW_START_COORD, self, [0, 1, 2])
+        self.crew_2 = RepairCrew(env, 'Машина 2', config.REPAIRING_CREW_SPEED, config.REPAIRING_TIME,
                                config.REPAIRING_CREW_START_COORD, self, [0, 3, 4])
 
         if self.need_drone:
             # Объект дрон
-            self.drone = Dron(env, self, self.crew, config.DRON_SPEED, config.DRON_FLIGHT_TIME, config.DRON_CHARGING_TIME)
+            self.drone = Dron(env, 'Дрон', self, self.crew, config.DRON_SPEED, config.DRON_FLIGHT_TIME, config.DRON_CHARGING_TIME)
 
         # Это словарик, который будет хранить реальные неустраненные взрывы
         #   Ключ - координата

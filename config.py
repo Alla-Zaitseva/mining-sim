@@ -6,6 +6,9 @@ DRON_SPEED = 60000 / 3600                   # In meters per second
 DRON_FLIGHT_TIME = 20 * 60                  # In seconds
 DRON_CHARGING_TIME = 15 * 60                # In seconds
 
+# Включить дебаг вывод или нет
+DEBUG = False
+
 REPAIRING_TIME = [
     0,
     12 * 60,
@@ -17,4 +20,4 @@ REPAIRING_TIME = [
 START_TIME = '00:00:00'
 TIME_FORMAT = '%H:%M:%S'
 
-PATH_TO_EXPLOSIONS_CONFIG = '/Users/alla/Desktop/mining-sim/file_creation/Explosions_10_1.json'
+PATH_TO_EXPLOSIONS_CONFIG = 'file_creation/Explosions_10_4.json'
