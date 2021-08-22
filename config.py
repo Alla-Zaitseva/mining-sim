@@ -20,4 +20,4 @@ REPAIRING_TIME = [
 START_TIME = '00:00:00'
 TIME_FORMAT = '%H:%M:%S'
 
-PATH_TO_EXPLOSIONS_CONFIG = 'file_creation/Explosions_10_4.json'
+PATH_TO_EXPLOSIONS_CONFIG = 'file_creation/Explosions_10_3.json'

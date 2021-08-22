@@ -82,6 +82,9 @@ class RepairCrew(object):
         '''
 
         while True:
+            if config.DEBUG:
+                print('#debug# Внутри цикла', self.name)
+            
             if self.status == self.Status.VACANT:
                 self.status = self.Status.MOVING
             elif self.status == self.Status.MOVING:
@@ -91,6 +94,10 @@ class RepairCrew(object):
                     elif self.direction == 'Left' and abs(self.coord) <= 10:
                         self.direction = 'Right'
                     try:
+                        if config.DEBUG:
+                            print('#debug#', self.name)
+                            print('#debug#', get_found_explosions(self.field.explosions_found, self.respons))
+                            # print('#debug#', self.field.explosions_found)
                         if len(get_found_explosions(self.field.explosions_found, self.respons)) == 0:
                             if self.direction == 'Right':
                                 explosions = self.field.explosions.copy()
@@ -132,6 +139,7 @@ class RepairCrew(object):
                 self.coord = get_nearest(self.coord, self.field.explosions, self.respons)
                 self.status = self.Status.REPAIRING
             elif self.status == self.Status.REPAIRING:
+                print('#debug# repairing', self.name)
                 explosion_id = self.field.explosions[self.coord]['ID']
                 print('{} {} "{}" "начало ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
                                                                   explosion_id))
@@ -176,6 +184,8 @@ class Dron(object):
         '''
 
         while True:
+            if config.DEBUG:
+                print('#debug# Внутри цикла', self.name)
             if self.status == self.Status.WAITING:
                 self.status = self.Status.SEARCHING
                 self.direction = 'Left'
@@ -190,6 +200,8 @@ class Dron(object):
                     self.direction = 'Right'
                 self.real_time = 0
                 while abs(self.t_search - self.real_time) >= 5:
+                    if config.DEBUG:
+                        print('#debug# внутри цикла searching', self.name)
                     if self.direction == 'Right':
                         explosions = self.field.explosions.copy()
                         explosions[config.ROAD_LENGTH] = {}
@@ -221,8 +233,10 @@ class Dron(object):
                                                                             nearest_point,
                                                                             self.name,
                                                                             self.field.explosions_found[nearest_point]['ID']))
-                        if self.repair_crew.status == self.repair_crew.Status.MOVING:
+                        if self.field.crew.status == self.field.crew.Status.MOVING:
                             self.field.crew_proc.interrupt('')
+                        if self.field.crew_2.status == self.field.crew_2.Status.MOVING:
+                            self.field.crew_proc_2.interrupt('')
                     self.repair_crew.update_coord()
 
                 self.status = self.Status.COMES_BACK
@@ -240,12 +254,16 @@ class Dron(object):
                     self.repair_crew.update_coord()
 
                     if self.direction == 'Right':
+                        if config.DEBUG:
+                            print('#debug# Right')
                         explosions = self.field.explosions.copy()
                         explosions[self.repair_crew.coord] = {}
                         explosions[config.ROAD_LENGTH] = {}
                         nearest_point = get_nearest_right(self.coord, explosions, [0, 1, 2, 3, 4])
                         time = (nearest_point - self.coord) / self.speed
                     else:
+                        if config.DEBUG:
+                            print('#debug# Left')
                         explosions = self.field.explosions.copy()
                         explosions[0] = {}
                         explosions[self.repair_crew.coord] = {}
@@ -253,6 +271,11 @@ class Dron(object):
                         time = (self.coord - nearest_point) / self.speed
                     time = min(self.t_back - self.real_time, time)
                     self.prev_time = self.env.now
+
+                    if config.DEBUG:
+                        print('#debug# внутри цикла comes back', self.name)
+                        print('#debug#', self.coord, nearest_point, self.repair_crew.coord)
+
                     try:
                         yield self.env.timeout(time)
                     except simpy.Interrupt as i:
@@ -354,6 +377,7 @@ class Field(object):
         if self.need_drone:
             self.dron_proc = self.env.process(self.drone.setup())
         self.crew_proc = self.env.process(self.crew.setup())
+        self.crew_proc_2 = self.env.process(self.crew_2.setup())
 
 
         pass
