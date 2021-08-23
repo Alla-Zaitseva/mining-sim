@@ -248,7 +248,9 @@ class Dron(object):
 
                 self.status = self.Status.COMES_BACK
             elif self.status == self.Status.COMES_BACK:
-                if self.direction == 'Right':
+                self.repair_crew.update_coord()
+
+                if self.coord > self.repair_crew.coord:
                     self.direction = 'Left'
                 else:
                     self.direction = 'Right'
