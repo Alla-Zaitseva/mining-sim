@@ -15,15 +15,21 @@ def get_found_explosions(explosions, respons):
             new_explosions[explosion_coord] = explosion
     return new_explosions
 
-def get_nearest_left(coord, explosions, respons):
+def get_nearest_left(coord, explosions, respons, including=True):
     new_explosions = get_found_explosions(explosions, respons)
     keys = np.array(list(new_explosions.keys()))
-    return keys[keys <= coord].max()
+    if including:
+        return keys[keys <= coord].max()
+    else:
+        return keys[keys < coord].max()
 
-def get_nearest_right(coord, explosions, respons):
+def get_nearest_right(coord, explosions, respons, including=True):
     new_explosions = get_found_explosions(explosions, respons)
     keys = np.array(list(new_explosions.keys()))
-    return keys[keys >= coord].min()
+    if including:
+        return keys[keys >= coord].min()
+    else:
+        return keys[keys > coord].min()
 
 def get_nearest(coord, explosions, respons):
     new_explosions = get_found_explosions(explosions, respons)
@@ -139,7 +145,8 @@ class RepairCrew(object):
                 self.coord = get_nearest(self.coord, self.field.explosions, self.respons)
                 self.status = self.Status.REPAIRING
             elif self.status == self.Status.REPAIRING:
-                print('#debug# repairing', self.name)
+                if config.DEBUG:
+                    print('#debug# repairing', self.name)
                 explosion_id = self.field.explosions[self.coord]['ID']
                 print('{} {} "{}" "начало ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
                                                                   explosion_id))
@@ -252,22 +259,24 @@ class Dron(object):
                 self.real_time = 0
                 while abs(self.coord - self.repair_crew.coord) >= 10:
                     self.repair_crew.update_coord()
-
+                    
                     if self.direction == 'Right':
                         if config.DEBUG:
                             print('#debug# Right')
                         explosions = self.field.explosions.copy()
+                        explosions.pop(self.coord, 0)
                         explosions[self.repair_crew.coord] = {}
                         explosions[config.ROAD_LENGTH] = {}
-                        nearest_point = get_nearest_right(self.coord, explosions, [0, 1, 2, 3, 4])
+                        nearest_point = get_nearest_right(self.coord, explosions, [0, 1, 2, 3, 4], including=True)
                         time = (nearest_point - self.coord) / self.speed
                     else:
                         if config.DEBUG:
                             print('#debug# Left')
                         explosions = self.field.explosions.copy()
+                        explosions.pop(self.coord, 0)
                         explosions[0] = {}
                         explosions[self.repair_crew.coord] = {}
-                        nearest_point = get_nearest_left(self.coord, explosions, [0, 1, 2, 3, 4])
+                        nearest_point = get_nearest_left(self.coord, explosions, [0, 1, 2, 3, 4], including=True)
                         time = (self.coord - nearest_point) / self.speed
                     time = min(self.t_back - self.real_time, time)
                     self.prev_time = self.env.now
@@ -289,9 +298,10 @@ class Dron(object):
                     nearest_point = get_nearest(self.coord, self.field.explosions, [0, 1, 2, 3, 4])
                     if abs(self.coord - nearest_point) <= 10:
                         self.field.explosions_found[nearest_point] = self.field.explosions[nearest_point]
-                    if self.direction == 'Right' and self.coord < self.repair_crew.coord:
+                        self.coord = nearest_point
+                    if self.direction == 'Right' and self.coord >= self.repair_crew.coord:
                         break
-                    elif self.direction == 'Left' and self.coord > self.repair_crew.coord:
+                    elif self.direction == 'Left' and self.coord <= self.repair_crew.coord:
                         break
 
                 self.coord = self.repair_crew.coord
