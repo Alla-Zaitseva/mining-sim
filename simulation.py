@@ -182,8 +182,8 @@ class Dron(object):
         self.status = self.Status.WAITING
         self.direction = 'Right'
         self.coord = self.repair_crew.coord
-        self.t_search = (self.speed * self.flight_time) / (2 * self.speed + self.repair_crew.speed)
-        self.t_back = self.flight_time - self.t_search
+        self.t_search = (self.speed * self.flight_time) / (2 * self.speed + self.repair_crew.speed) - 200  # FIXME: remove this fucking shit
+        self.t_back = self.flight_time - self.t_search + 200  # FIXME: here too
 
     def setup(self):
         '''
@@ -257,7 +257,8 @@ class Dron(object):
                 
                 if config.DEBUG:
                     print('#Debug# {} "{}" разворот теперь в {}'.format(get_current_time_str(self.env), self.name, self.direction))
-
+                    print('#debug#', self.coord, self.repair_crew.coord)
+                    print('#debug#', self.t_back)
                 self.real_time = 0
                 while abs(self.coord - self.repair_crew.coord) >= 10:
                     self.repair_crew.update_coord()
@@ -286,6 +287,7 @@ class Dron(object):
                     if config.DEBUG:
                         print('#debug# внутри цикла comes back', self.name)
                         print('#debug#', self.coord, nearest_point, self.repair_crew.coord)
+                        print('#debug#', self.t_back - self.real_time)
 
                     try:
                         yield self.env.timeout(time)
