@@ -1,7 +1,7 @@
 {
-    "filename_prefix" : "test/explosions_10_",
+    "filename_prefix" : "test/explosions_40_",
     "files_quantity" : 10,
-    "road_length" : 10000,
+    "road_length" : 40000,
     "explosions_probability" : {
         "type_1" : 0.6,
         "type_2" : 0.2,

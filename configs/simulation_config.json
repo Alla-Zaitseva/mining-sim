@@ -13,7 +13,7 @@
         }
     },
     "params" : {
-        "road_length" : 10000,
+        "road_length" : 40000,
         "repairing_crew_speed" : 8.3333,
         "repairing_crew_start_coord" : 0,
         "drone_speed" : 16.6666,
@@ -28,15 +28,15 @@
         ]
     },
     "explosions_files" : [
-        "test/explosions_10_1.json",
-        "test/explosions_10_2.json",
-        "test/explosions_10_3.json",
-        "test/explosions_10_4.json",
-        "test/explosions_10_5.json",
-        "test/explosions_10_6.json",
-        "test/explosions_10_7.json",
-        "test/explosions_10_8.json",
-        "test/explosions_10_9.json",
-        "test/explosions_10_10.json"
+        "test/explosions_40_1.json",
+        "test/explosions_40_2.json",
+        "test/explosions_40_3.json",
+        "test/explosions_40_4.json",
+        "test/explosions_40_5.json",
+        "test/explosions_40_6.json",
+        "test/explosions_40_7.json",
+        "test/explosions_40_8.json",
+        "test/explosions_40_9.json",
+        "test/explosions_40_10.json"
     ]
 }

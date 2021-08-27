@@ -62,6 +62,13 @@ def get_nearest(coord, explosions, respons):
     else:
         return nearest_right
 
+def get_direction_rus(direction):
+    if direction == 'Left':
+        return 'налево'
+    else:
+        return 'направо'
+
+
 def get_current_time_str(env):
     current_time = datetime(year=1, month=1, day=1, hour=0, minute=0, second=0) + timedelta(seconds=int(env.now))
     return current_time.strftime(config.TIME_FORMAT)
@@ -107,11 +114,21 @@ class RepairCrew(object):
             if self.status == self.Status.VACANT:
                 self.status = self.Status.MOVING
             elif self.status == self.Status.MOVING:
+                logger.log('{} {} "{}" "начало марша {}"'.format(get_current_time_str(self.env), self.coord,
+                                                                 self.name, get_direction_rus(self.direction)))
                 while abs(get_nearest(self.coord, self.field.explosions, self.respons) - self.coord) >= 10:
                     if self.direction == 'Right' and abs(config.ROAD_LENGTH - self.coord) <= 10:
                         self.direction = 'Left'
+                        logger.log('{} {} "{}" "окончание марша"'.format(get_current_time_str(self.env), self.coord,
+                                                                         self.name))
+                        logger.log('{} {} "{}" "начало марша {}"'.format(get_current_time_str(self.env), self.coord,
+                                                                         self.name, get_direction_rus(self.direction)))
                     elif self.direction == 'Left' and abs(self.coord) <= 10:
                         self.direction = 'Right'
+                        logger.log('{} {} "{}" "окончание марша"'.format(get_current_time_str(self.env), self.coord,
+                                                                         self.name))
+                        logger.log('{} {} "{}" "начало марша {}"'.format(get_current_time_str(self.env), self.coord,
+                                                                         self.name, get_direction_rus(self.direction)))
                     try:
                         if config.DEBUG:
                             logger.log('#debug#', self.name)
@@ -161,6 +178,8 @@ class RepairCrew(object):
                 if config.DEBUG:
                     logger.log('#debug# repairing', self.name)
                 explosion_id = self.field.explosions[self.coord]['ID']
+                logger.log('{} {} "{}" "окончание марша"'.format(get_current_time_str(self.env), self.coord,
+                                                                 self.name))
                 logger.log('{} {} "{}" "начало ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
                                                                   explosion_id))
                 yield self.env.timeout(self.repair_time[explosion_id])
@@ -195,8 +214,8 @@ class Dron(object):
         self.status = self.Status.WAITING
         self.direction = 'Right'
         self.coord = self.repair_crew.coord
-        self.t_search = (self.speed * self.flight_time) / (2 * self.speed + self.repair_crew.speed) - 200  # FIXME: remove this fucking shit
-        self.t_back = self.flight_time - self.t_search + 200  # FIXME: here too
+        self.t_search = (self.speed * self.flight_time - self.repair_crew.speed * self.flight_time) / (2 * self.speed)
+        self.t_back = self.flight_time - self.t_search
 
     def setup(self):
         '''
