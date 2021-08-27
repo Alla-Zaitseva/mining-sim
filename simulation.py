@@ -2,22 +2,43 @@ import simpy
 import random
 import config
 import json
+from dicttoxml import dicttoxml
 from enum import Enum
 from datetime import datetime, timedelta
 import numpy as np
 
 
 class Logger:
-    def __init__(self, filepath):
-        self.file = open(filepath, 'wb')
+    def __init__(self, txt_path, json_path, xml_path):
+        self.txt_file = open(txt_path, 'w')
+        self.json_path = json_path
+        self.xml_path = xml_path
+        self.json_file_content = {
+            'logs' : []
+        }
 
-    def log(self, *objects):
-        objects = [str(object) for object in objects]
-        self.file.write((' '.join(objects)).encode('utf-8'))
-        self.file.write(b'\n')
+    def log(self, time, coord, name, message):
+        self.txt_file.write('{} {} "{}" "{}"'.format(time, coord, name, message))
+        self.txt_file.write('\n')
+
+        json_log = {
+            'time' : str(time),
+            'coordinate' : int(coord),
+            'object_name' : str(name),
+            'message' : message
+        }
+        self.json_file_content['logs'].append(json_log)
 
     def close(self):
-        self.file.close()
+        self.txt_file.close()
+        
+        with open(self.json_path, 'w') as f:
+            f.write(json.dumps(self.json_file_content, indent=4, ensure_ascii=False))
+        
+        xml = dicttoxml(self.json_file_content, custom_root='test', attr_type=False)
+        with open(self.xml_path, 'wb') as f:
+            f.write(xml)
+        
 
 logger = None
 
@@ -108,31 +129,26 @@ class RepairCrew(object):
         '''
 
         while True:
-            if config.DEBUG:
-                logger.log('#debug# Внутри цикла', self.name)
+            # if config.DEBUG:
+            #     logger.log('#debug# Внутри цикла', self.name)
             
             if self.status == self.Status.VACANT:
                 self.status = self.Status.MOVING
             elif self.status == self.Status.MOVING:
-                logger.log('{} {} "{}" "начало марша {}"'.format(get_current_time_str(self.env), self.coord,
-                                                                 self.name, get_direction_rus(self.direction)))
+                logger.log(get_current_time_str(self.env), self.coord, self.name, "начало марша {}".format(get_direction_rus(self.direction)))
                 while abs(get_nearest(self.coord, self.field.explosions, self.respons) - self.coord) >= 10:
                     if self.direction == 'Right' and abs(config.ROAD_LENGTH - self.coord) <= 10:
                         self.direction = 'Left'
-                        logger.log('{} {} "{}" "окончание марша"'.format(get_current_time_str(self.env), self.coord,
-                                                                         self.name))
-                        logger.log('{} {} "{}" "начало марша {}"'.format(get_current_time_str(self.env), self.coord,
-                                                                         self.name, get_direction_rus(self.direction)))
+                        logger.log(get_current_time_str(self.env), self.coord, self.name, "окончание марша")
+                        logger.log(get_current_time_str(self.env), self.coord, self.name, "начало марша {}".format(get_direction_rus(self.direction)))
                     elif self.direction == 'Left' and abs(self.coord) <= 10:
                         self.direction = 'Right'
-                        logger.log('{} {} "{}" "окончание марша"'.format(get_current_time_str(self.env), self.coord,
-                                                                         self.name))
-                        logger.log('{} {} "{}" "начало марша {}"'.format(get_current_time_str(self.env), self.coord,
-                                                                         self.name, get_direction_rus(self.direction)))
+                        logger.log(get_current_time_str(self.env), self.coord, self.name, "окончание марша")
+                        logger.log(get_current_time_str(self.env), self.coord, self.name, "начало марша {}".format(get_direction_rus(self.direction)))
                     try:
-                        if config.DEBUG:
-                            logger.log('#debug#', self.name)
-                            logger.log('#debug#', get_found_explosions(self.field.explosions_found, self.respons))
+                        # if config.DEBUG:
+                            # logger.log('#debug#', self.name)
+                            # logger.log('#debug#', get_found_explosions(self.field.explosions_found, self.respons))
                             # logger.log('#debug#', self.field.explosions_found)
                         if len(get_found_explosions(self.field.explosions_found, self.respons)) == 0:
                             if self.direction == 'Right':
@@ -178,13 +194,10 @@ class RepairCrew(object):
                 if config.DEBUG:
                     logger.log('#debug# repairing', self.name)
                 explosion_id = self.field.explosions[self.coord]['ID']
-                logger.log('{} {} "{}" "окончание марша"'.format(get_current_time_str(self.env), self.coord,
-                                                                 self.name))
-                logger.log('{} {} "{}" "начало ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
-                                                                  explosion_id))
+                logger.log(get_current_time_str(self.env), self.coord, self.name, "окончание марша")
+                logger.log(get_current_time_str(self.env), self.coord, self.name, "начало ремонта МВЗ типа {}".format(explosion_id))
                 yield self.env.timeout(self.repair_time[explosion_id])
-                logger.log('{} {} "{}" "окончание ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
-                                                                  explosion_id))
+                logger.log(get_current_time_str(self.env), self.coord, self.name, "окончание ремонта МВЗ типа {}".format(explosion_id))
                 del self.field.explosions[self.coord]
                 self.field.explosions_found.pop(self.coord, None)
                 self.status = self.Status.VACANT
@@ -223,15 +236,13 @@ class Dron(object):
         '''
 
         while True:
-            if config.DEBUG:
-                logger.log('#debug# Внутри цикла', self.name)
+            # if config.DEBUG:
+            #     logger.log('#debug# Внутри цикла', self.name)
             if self.status == self.Status.WAITING:
                 self.status = self.Status.SEARCHING
                 self.direction = 'Left'
             elif self.status == self.Status.SEARCHING:
-                logger.log('{} {} "{}" "начало патрулирования БПЛА"'.format(get_current_time_str(self.env),
-                                                                       self.coord,
-                                                                       self.name))
+                logger.log(get_current_time_str(self.env), self.coord, self.name, "начало патрулирования БПЛА")
 
                 if self.direction == 'Right' and abs(self.coord - config.ROAD_LENGTH) <= 10:
                     self.direction = 'Left'
@@ -239,8 +250,8 @@ class Dron(object):
                     self.direction = 'Right'
                 self.real_time = 0
                 while abs(self.t_search - self.real_time) >= 5:
-                    if config.DEBUG:
-                        logger.log('#debug# внутри цикла searching', self.name)
+                    # if config.DEBUG:
+                    #     logger.log('#debug# внутри цикла searching', self.name)
                     if self.direction == 'Right':
                         explosions = self.field.explosions.copy()
                         explosions[config.ROAD_LENGTH] = {}
@@ -268,10 +279,7 @@ class Dron(object):
                     nearest_point = get_nearest(self.coord, self.field.explosions, [0, 1, 2, 3, 4])
                     if abs(self.coord - nearest_point) <= 10:
                         self.field.explosions_found[nearest_point] = self.field.explosions[nearest_point]
-                        logger.log('{} {} "{}" "обнаружен взрыв типа {}"'.format(get_current_time_str(self.env),
-                                                                            nearest_point,
-                                                                            self.name,
-                                                                            self.field.explosions_found[nearest_point]['ID']))
+                        logger.log(get_current_time_str(self.env), nearest_point, self.name, "обнаружен взрыв типа {}".format(self.field.explosions_found[nearest_point]['ID']))
                         for crew in self.field.crews.values():
                             if crew['crew'].status == RepairCrew.Status.MOVING:
                                 crew['process'].interrupt('')
@@ -287,17 +295,17 @@ class Dron(object):
                 else:
                     self.direction = 'Right'
                 
-                if config.DEBUG:
-                    logger.log('#Debug# {} "{}" разворот теперь в {}'.format(get_current_time_str(self.env), self.name, self.direction))
-                    logger.log('#debug#', self.coord, self.repair_crew.coord)
-                    logger.log('#debug#', self.t_back)
+                # if config.DEBUG:
+                #     logger.log('#Debug# {} "{}" разворот теперь в {}'.format(get_current_time_str(self.env), self.name, self.direction))
+                #     logger.log('#debug#', self.coord, self.repair_crew.coord)
+                #     logger.log('#debug#', self.t_back)
                 self.real_time = 0
                 while abs(self.coord - self.repair_crew.coord) >= 10:
                     self.repair_crew.update_coord()
                     
                     if self.direction == 'Right':
-                        if config.DEBUG:
-                            logger.log('#debug# Right')
+                        # if config.DEBUG:
+                        #     logger.log('#debug# Right')
                         explosions = self.field.explosions.copy()
                         explosions.pop(self.coord, 0)
                         explosions[self.repair_crew.coord] = {}
@@ -305,8 +313,8 @@ class Dron(object):
                         nearest_point = get_nearest_right(self.coord, explosions, [0, 1, 2, 3, 4], including=True)
                         time = (nearest_point - self.coord) / self.speed
                     else:
-                        if config.DEBUG:
-                            logger.log('#debug# Left')
+                        # if config.DEBUG:
+                        #     logger.log('#debug# Left')
                         explosions = self.field.explosions.copy()
                         explosions.pop(self.coord, 0)
                         explosions[0] = {}
@@ -316,10 +324,10 @@ class Dron(object):
                     time = min(self.t_back - self.real_time, time)
                     self.prev_time = self.env.now
 
-                    if config.DEBUG:
-                        logger.log('#debug# внутри цикла comes back', self.name)
-                        logger.log('#debug#', self.coord, nearest_point, self.repair_crew.coord)
-                        logger.log('#debug#', self.t_back - self.real_time)
+                    # if config.DEBUG:
+                    #     logger.log('#debug# внутри цикла comes back', self.name)
+                    #     logger.log('#debug#', self.coord, nearest_point, self.repair_crew.coord)
+                    #     logger.log('#debug#', self.t_back - self.real_time)
 
                     try:
                         yield self.env.timeout(time)
@@ -343,9 +351,7 @@ class Dron(object):
                 self.coord = self.repair_crew.coord
                 self.status = self.Status.CHARGING
             elif self.status == self.Status.CHARGING:
-                logger.log('{} {} "{}" "окончание патрулирования БПЛА"'.format(get_current_time_str(self.env),
-                                                                          self.coord,
-                                                                          self.name))
+                logger.log(get_current_time_str(self.env), self.coord, self.name, "окончание патрулирования БПЛА")
                 yield self.env.timeout(self.charging_time)
                 self.repair_crew.update_coord()
                 self.coord = self.repair_crew.coord
@@ -413,7 +419,7 @@ class Field(object):
 
             yield self.env.timeout(delta)
 
-            logger.log('{} {} "взрыв типа {}"'.format(explosion['Time'], explosion['Coordinates'], explosion['ID']))
+            logger.log(explosion['Time'], explosion['Coordinates'], 'Взрыв', "взрыв типа {}".format(explosion['ID']))
 
             self.explosions[explosion['Coordinates']] = explosion
             for crew in self.crews.values():
@@ -458,9 +464,11 @@ def simulate(config_json):
         env.run(until=config.MODELING_TIME)
     
     for input_path in config_json['explosions_files']:
-        output_path = input_path[:-5] + '_output.txt'
+        txt_path = input_path[:-5] + '_output.txt'
+        json_path = input_path[:-5] + '_output.json'
+        xml_path = input_path[:-5] + '_output.xml'
         global logger
-        logger = Logger(output_path)
+        logger = Logger(txt_path, json_path, xml_path)
 
         with open(input_path, 'r') as f:
             explosions_timetable = json.load(f)
