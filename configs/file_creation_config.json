@@ -1,0 +1,11 @@
+{
+    "filename_prefix" : "test/explosions_10_",
+    "files_quantity" : 10,
+    "road_length" : 10000,
+    "explosions_probability" : {
+        "type_1" : 0.6,
+        "type_2" : 0.2,
+        "type_3" : 0.3,
+        "type_4" : 0.7
+    }
+}

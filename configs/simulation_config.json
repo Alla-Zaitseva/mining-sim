@@ -1,0 +1,42 @@
+{
+    "repairing_crews" : {
+        "repairing_crew_1" : {
+            "responsibility" : [0, 1, 2]
+        },
+        "repairing_crew_2" : {
+            "responsibility" : [0, 3, 4]
+        }
+    },
+    "drones" : {
+        "drone_1" : {
+            "repairing_crew_connected_to" : "repairing_crew_1"
+        }
+    },
+    "params" : {
+        "road_length" : 10000,
+        "repairing_crew_speed" : 8.3333,
+        "repairing_crew_start_coord" : 0,
+        "drone_speed" : 16.6666,
+        "drone_flight_time" : 1200,
+        "drone_charging_time" : 900,
+        "repairing_time" : [
+            0,
+            900,
+            2700,
+            1080,
+            900
+        ]
+    },
+    "explosions_files" : [
+        "test/explosions_10_1.json",
+        "test/explosions_10_2.json",
+        "test/explosions_10_3.json",
+        "test/explosions_10_4.json",
+        "test/explosions_10_5.json",
+        "test/explosions_10_6.json",
+        "test/explosions_10_7.json",
+        "test/explosions_10_8.json",
+        "test/explosions_10_9.json",
+        "test/explosions_10_10.json"
+    ]
+}

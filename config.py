@@ -7,7 +7,7 @@ DRON_FLIGHT_TIME = 20 * 60                  # In seconds
 DRON_CHARGING_TIME = 15 * 60                # In seconds
 
 # Включить дебаг вывод или нет
-DEBUG = True
+DEBUG = False
 
 REPAIRING_TIME = [
     0,

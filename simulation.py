@@ -4,9 +4,22 @@ import config
 import json
 from enum import Enum
 from datetime import datetime, timedelta
-from bisect import bisect_left
 import numpy as np
 
+
+class Logger:
+    def __init__(self, filepath):
+        self.file = open(filepath, 'wb')
+
+    def log(self, *objects):
+        objects = [str(object) for object in objects]
+        self.file.write((' '.join(objects)).encode('utf-8'))
+        self.file.write(b'\n')
+
+    def close(self):
+        self.file.close()
+
+logger = None
 
 def get_found_explosions(explosions, respons):
     new_explosions = {}
@@ -73,13 +86,13 @@ class RepairCrew(object):
 
     def update_coord(self):
         if self.status == self.Status.MOVING:
-            # print('  -  Car coord prev: ', self.coord)
+            # logger.log('  -  Car coord prev: ', self.coord)
             road_time = self.env.now - self.prev_time
             if self.direction == 'Right':
                 self.coord += int(road_time * self.speed)
             else:
                 self.coord -= int(road_time * self.speed)
-            # print('  -  Car coord now: ', self.coord)
+            # logger.log('  -  Car coord now: ', self.coord)
             self.prev_time = self.env.now
 
     def setup(self):
@@ -89,7 +102,7 @@ class RepairCrew(object):
 
         while True:
             if config.DEBUG:
-                print('#debug# Внутри цикла', self.name)
+                logger.log('#debug# Внутри цикла', self.name)
             
             if self.status == self.Status.VACANT:
                 self.status = self.Status.MOVING
@@ -101,9 +114,9 @@ class RepairCrew(object):
                         self.direction = 'Right'
                     try:
                         if config.DEBUG:
-                            print('#debug#', self.name)
-                            print('#debug#', get_found_explosions(self.field.explosions_found, self.respons))
-                            # print('#debug#', self.field.explosions_found)
+                            logger.log('#debug#', self.name)
+                            logger.log('#debug#', get_found_explosions(self.field.explosions_found, self.respons))
+                            # logger.log('#debug#', self.field.explosions_found)
                         if len(get_found_explosions(self.field.explosions_found, self.respons)) == 0:
                             if self.direction == 'Right':
                                 explosions = self.field.explosions.copy()
@@ -146,12 +159,12 @@ class RepairCrew(object):
                 self.status = self.Status.REPAIRING
             elif self.status == self.Status.REPAIRING:
                 if config.DEBUG:
-                    print('#debug# repairing', self.name)
+                    logger.log('#debug# repairing', self.name)
                 explosion_id = self.field.explosions[self.coord]['ID']
-                print('{} {} "{}" "начало ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
+                logger.log('{} {} "{}" "начало ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
                                                                   explosion_id))
                 yield self.env.timeout(self.repair_time[explosion_id])
-                print('{} {} "{}" "окончание ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
+                logger.log('{} {} "{}" "окончание ремонта МВЗ типа {}"'.format(get_current_time_str(self.env), self.coord, self.name,
                                                                   explosion_id))
                 del self.field.explosions[self.coord]
                 self.field.explosions_found.pop(self.coord, None)
@@ -192,12 +205,12 @@ class Dron(object):
 
         while True:
             if config.DEBUG:
-                print('#debug# Внутри цикла', self.name)
+                logger.log('#debug# Внутри цикла', self.name)
             if self.status == self.Status.WAITING:
                 self.status = self.Status.SEARCHING
                 self.direction = 'Left'
             elif self.status == self.Status.SEARCHING:
-                print('{} {} "{}" "начало патрулирования БПЛА"'.format(get_current_time_str(self.env),
+                logger.log('{} {} "{}" "начало патрулирования БПЛА"'.format(get_current_time_str(self.env),
                                                                        self.coord,
                                                                        self.name))
 
@@ -208,7 +221,7 @@ class Dron(object):
                 self.real_time = 0
                 while abs(self.t_search - self.real_time) >= 5:
                     if config.DEBUG:
-                        print('#debug# внутри цикла searching', self.name)
+                        logger.log('#debug# внутри цикла searching', self.name)
                     if self.direction == 'Right':
                         explosions = self.field.explosions.copy()
                         explosions[config.ROAD_LENGTH] = {}
@@ -236,14 +249,14 @@ class Dron(object):
                     nearest_point = get_nearest(self.coord, self.field.explosions, [0, 1, 2, 3, 4])
                     if abs(self.coord - nearest_point) <= 10:
                         self.field.explosions_found[nearest_point] = self.field.explosions[nearest_point]
-                        print('{} {} "{}" "обнаружен взрыв типа {}"'.format(get_current_time_str(self.env),
+                        logger.log('{} {} "{}" "обнаружен взрыв типа {}"'.format(get_current_time_str(self.env),
                                                                             nearest_point,
                                                                             self.name,
                                                                             self.field.explosions_found[nearest_point]['ID']))
-                        if self.field.crew.status == self.field.crew.Status.MOVING:
-                            self.field.crew_proc.interrupt('')
-                        if self.field.crew_2.status == self.field.crew_2.Status.MOVING:
-                            self.field.crew_proc_2.interrupt('')
+                        for crew in self.field.crews.values():
+                            if crew['crew'].status == RepairCrew.Status.MOVING:
+                                crew['process'].interrupt('')
+                            
                     self.repair_crew.update_coord()
 
                 self.status = self.Status.COMES_BACK
@@ -256,16 +269,16 @@ class Dron(object):
                     self.direction = 'Right'
                 
                 if config.DEBUG:
-                    print('#Debug# {} "{}" разворот теперь в {}'.format(get_current_time_str(self.env), self.name, self.direction))
-                    print('#debug#', self.coord, self.repair_crew.coord)
-                    print('#debug#', self.t_back)
+                    logger.log('#Debug# {} "{}" разворот теперь в {}'.format(get_current_time_str(self.env), self.name, self.direction))
+                    logger.log('#debug#', self.coord, self.repair_crew.coord)
+                    logger.log('#debug#', self.t_back)
                 self.real_time = 0
                 while abs(self.coord - self.repair_crew.coord) >= 10:
                     self.repair_crew.update_coord()
                     
                     if self.direction == 'Right':
                         if config.DEBUG:
-                            print('#debug# Right')
+                            logger.log('#debug# Right')
                         explosions = self.field.explosions.copy()
                         explosions.pop(self.coord, 0)
                         explosions[self.repair_crew.coord] = {}
@@ -274,7 +287,7 @@ class Dron(object):
                         time = (nearest_point - self.coord) / self.speed
                     else:
                         if config.DEBUG:
-                            print('#debug# Left')
+                            logger.log('#debug# Left')
                         explosions = self.field.explosions.copy()
                         explosions.pop(self.coord, 0)
                         explosions[0] = {}
@@ -285,9 +298,9 @@ class Dron(object):
                     self.prev_time = self.env.now
 
                     if config.DEBUG:
-                        print('#debug# внутри цикла comes back', self.name)
-                        print('#debug#', self.coord, nearest_point, self.repair_crew.coord)
-                        print('#debug#', self.t_back - self.real_time)
+                        logger.log('#debug# внутри цикла comes back', self.name)
+                        logger.log('#debug#', self.coord, nearest_point, self.repair_crew.coord)
+                        logger.log('#debug#', self.t_back - self.real_time)
 
                     try:
                         yield self.env.timeout(time)
@@ -311,34 +324,44 @@ class Dron(object):
                 self.coord = self.repair_crew.coord
                 self.status = self.Status.CHARGING
             elif self.status == self.Status.CHARGING:
-                print('{} {} "{}" "окончание патрулирования БПЛА"'.format(get_current_time_str(self.env),
+                logger.log('{} {} "{}" "окончание патрулирования БПЛА"'.format(get_current_time_str(self.env),
                                                                           self.coord,
                                                                           self.name))
                 yield self.env.timeout(self.charging_time)
                 self.repair_crew.update_coord()
                 self.coord = self.repair_crew.coord
                 self.status = self.Status.SEARCHING
-
-
-
-
-
         pass
 
 
 class Field(object):
-    def __init__(self, env, need_drone):
+    def __init__(self, env, config_json, explosions_timetable):
         self.env = env
-        self.need_drone = need_drone
-        # Объект служба ремонта (машина)
-        self.crew = RepairCrew(env, 'Машина 1', config.REPAIRING_CREW_SPEED, config.REPAIRING_TIME,
-                               config.REPAIRING_CREW_START_COORD, self, [0, 1, 2])
-        self.crew_2 = RepairCrew(env, 'Машина 2', config.REPAIRING_CREW_SPEED, config.REPAIRING_TIME,
-                               config.REPAIRING_CREW_START_COORD, self, [0, 3, 4])
 
-        if self.need_drone:
-            # Объект дрон
-            self.drone = Dron(env, 'Дрон', self, self.crew, config.DRON_SPEED, config.DRON_FLIGHT_TIME, config.DRON_CHARGING_TIME)
+        self.crews = {}
+        self.drones = {}
+
+        for crew_name, crew_params in config_json['repairing_crews'].items():
+            self.crews[crew_name] = {
+                'crew' : RepairCrew(env,
+                                    crew_name,
+                                    config.REPAIRING_CREW_SPEED,
+                                    config.REPAIRING_TIME,
+                                    config.REPAIRING_CREW_START_COORD,
+                                    self,
+                                    crew_params['responsibility'])
+            }
+
+        for drone_name, drone_params in config_json['drones'].items():
+            self.drones[drone_name] = {
+                'drone' : Dron(env,
+                            drone_name,
+                            self,
+                            self.crews[drone_params['repairing_crew_connected_to']]['crew'],
+                            config.DRON_SPEED,
+                            config.DRON_FLIGHT_TIME,
+                            config.DRON_CHARGING_TIME)
+            }
 
         # Это словарик, который будет хранить реальные неустраненные взрывы
         #   Ключ - координата
@@ -356,8 +379,7 @@ class Field(object):
         self.explosions_found = {}
         
         # Загружаем файлик расписания взрывов
-        with open(config.PATH_TO_EXPLOSIONS_CONFIG, 'r') as file:
-            self.explosions_timetable = json.load(file)
+        self.explosions_timetable = explosions_timetable
     
     def explosion_generator(self):
         '''
@@ -372,13 +394,15 @@ class Field(object):
 
             yield self.env.timeout(delta)
 
-            print('{} {} "взрыв типа {}"'.format(explosion['Time'], explosion['Coordinates'], explosion['ID']))
+            logger.log('{} {} "взрыв типа {}"'.format(explosion['Time'], explosion['Coordinates'], explosion['ID']))
+
             self.explosions[explosion['Coordinates']] = explosion
-            if self.crew.status == self.crew.Status.MOVING:
-                self.crew_proc.interrupt('')
-            if self.need_drone:
-                if self.drone.status == self.drone.Status.SEARCHING or self.drone.status == self.drone.Status.COMES_BACK:
-                    self.dron_proc.interrupt('')
+            for crew in self.crews.values():
+                if crew['crew'].status == RepairCrew.Status.MOVING:
+                    crew['process'].interrupt('')
+            for drone in self.drones.values():
+                if drone['drone'].status == Dron.Status.SEARCHING or drone['drone'].status == Dron.Status.COMES_BACK:
+                    drone['process'].interrupt('')
 
         pass
     
@@ -388,20 +412,42 @@ class Field(object):
         '''
         
         self.expl_gen = self.env.process(self.explosion_generator())
-        if self.need_drone:
-            self.dron_proc = self.env.process(self.drone.setup())
-        self.crew_proc = self.env.process(self.crew.setup())
-        self.crew_proc_2 = self.env.process(self.crew_2.setup())
 
+        for drone in self.drones.values():
+            drone['process'] = self.env.process(drone['drone'].setup())
+        for crew in self.crews.values():
+            crew['process'] = self.env.process(crew['crew'].setup())
 
         pass
 
+def simulate(config_json):
+    params = config_json['params']
+    config.ROAD_LENGTH = params['road_length']
+    config.REPAIRING_CREW_SPEED = params['repairing_crew_speed']
+    config.REPAIRING_CREW_START_COORD = params['repairing_crew_start_coord']
+    config.DRON_SPEED = params['drone_speed']
+    config.DRON_FLIGHT_TIME = params['drone_flight_time']
+    config.DRON_CHARGING_TIME = params['drone_charging_time']
+    config.REPAIRING_TIME = params['repairing_time']
 
-def simulate():
-    env = simpy.Environment()
-    field = Field(env, True)   # bool переменная - отвечает за то, нужен ли дрон
+    def simulate_start(explosions_timetable):
+        env = simpy.Environment()
+        field = Field(env, config_json, explosions_timetable)
 
-    field.setup()
+        field.setup()
 
-    env.run(until=config.MODELING_TIME)
+        env.run(until=config.MODELING_TIME)
+    
+    for input_path in config_json['explosions_files']:
+        output_path = input_path[:-5] + '_output.txt'
+        global logger
+        logger = Logger(output_path)
+
+        with open(input_path, 'r') as f:
+            explosions_timetable = json.load(f)
+        simulate_start(explosions_timetable)
+
+        logger.close()
+        logger = None
+    
     pass
