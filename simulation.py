@@ -392,6 +392,53 @@ class Dron(object):
                 self.status = self.Status.SEARCHING
         pass
 
+class Transit(object):
+    def __init__(self, env, name, speed, field):
+        self.env = env
+        self.name = name
+        self.speed = speed
+        self.coord = 0
+        self.field = field
+    
+    def setup(self):
+        # TODO: why is simulation too long?
+        logger.log(get_current_time_str(self.env), self.coord, self.name, "колонна начала движение")
+        while True:
+            explosions = self.field.explosions.copy()
+            explosions[config.ROAD_LENGTH] = {}
+            self.nearest_point = get_nearest_right(self.coord, explosions, [0, 1, 2, 3, 4], including=False)
+            
+            time = (self.nearest_point - self.coord) / self.speed
+
+            self.prev_time = self.env.now
+            try:
+                yield self.env.timeout(time)
+            except simpy.Interrupt as i:
+                pass
+
+            delta = self.env.now - self.prev_time
+            self.coord += int(delta * self.speed)
+
+            if abs(self.coord - config.ROAD_LENGTH) <= 10:
+                break
+
+            explosions = self.field.explosions.copy()
+            explosions[config.ROAD_LENGTH] = {}
+            nearest_point_now = get_nearest(self.coord, explosions, [0, 1, 2, 3, 4])
+
+            if abs(self.coord - nearest_point_now) <= 10 and nearest_point_now not in self.field.explosions_found:
+                self.field.explosions_found[nearest_point_now] = self.field.explosions[nearest_point_now]
+                self.coord = nearest_point_now
+                logger.log(get_current_time_str(self.env), nearest_point_now, self.name, "обнаружен взрыв типа {}".format(self.field.explosions[nearest_point_now]['ID']))
+            
+        logger.log(get_current_time_str(self.env), self.coord, self.name, "колонна закончила движение")
+
+        self.delete()
+
+    def delete(self):
+        del self.field.transits[self.name]
+
+        
 
 class Field(object):
     def __init__(self, env, config_json, explosions_timetable):
@@ -439,6 +486,8 @@ class Field(object):
         
         # Загружаем файлик расписания взрывов
         self.explosions_timetable = explosions_timetable
+
+        self.transits = {}
     
     def explosion_generator(self):
         '''
@@ -462,8 +511,31 @@ class Field(object):
             for drone in self.drones.values():
                 if drone['drone'].status == Dron.Status.SEARCHING or drone['drone'].status == Dron.Status.COMES_BACK:
                     drone['process'].interrupt('')
+            for transit in self.transits.values():
+                transit['process'].interrupt('')
 
         pass
+
+    def transit_generator(self):
+        '''
+        Функция которая генерирует в нужные времена колонну
+        '''
+        time_to_sleep = config.TRANSIT_FREQUENCY
+
+        i = 1
+        while True:
+            name = "transit_" + str(i)
+            self.transits[name] = {
+                'transit' : Transit(self.env,
+                                    name,
+                                    config.TRANSIT_SPEED,
+                                    self)
+            }
+            self.transits[name]['process'] = self.env.process(self.transits[name]['transit'].setup())
+            
+            yield self.env.timeout(time_to_sleep)
+            i += 1
+            
     
     def setup(self):
         '''
@@ -471,6 +543,7 @@ class Field(object):
         '''
         
         self.expl_gen = self.env.process(self.explosion_generator())
+        self.trans_gen = self.env.process(self.transit_generator())
 
         for drone in self.drones.values():
             drone['process'] = self.env.process(drone['drone'].setup())

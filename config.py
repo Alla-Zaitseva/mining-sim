@@ -5,6 +5,8 @@ REPAIRING_CREW_START_COORD = 0              # In meters
 DRON_SPEED = 60000 / 3600                   # In meters per second
 DRON_FLIGHT_TIME = 20 * 60                  # In seconds
 DRON_CHARGING_TIME = 15 * 60                # In seconds
+TRANSIT_SPEED = 9                           # In meters per second
+TRANSIT_FREQUENCY = 1200                    # In seconds
 
 # Включить дебаг вывод или нет
 DEBUG = False

@@ -15,6 +15,9 @@
             "repairing_crew_connected_to" : "repairing_crew_1"
         }
     },
+    "transit" : {
+        "frequency" : 1200
+    },
     "params" : {
         "road_length" : 40000,
         "repairing_crew_speed" : 8.3333,
@@ -22,6 +25,7 @@
         "drone_speed" : 16.6666,
         "drone_flight_time" : 1200,
         "drone_charging_time" : 900,
+        "transit_speed" : 9,
         "repairing_time" : [
             0,
             900,
