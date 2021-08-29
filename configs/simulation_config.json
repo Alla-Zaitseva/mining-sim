@@ -5,6 +5,9 @@
         },
         "repairing_crew_2" : {
             "responsibility" : [0, 3, 4]
+        },
+        "repairing_crew_3" : {
+            "responsibility" : [0, 1, 4]
         }
     },
     "drones" : {

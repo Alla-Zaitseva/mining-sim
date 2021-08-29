@@ -19,6 +19,12 @@
             "message": "начало марша направо"
         },
         {
+            "time": "00:00:00",
+            "coordinate": 0,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша направо"
+        },
+        {
             "time": "00:04:23",
             "coordinate": 16231,
             "object_name": "Взрыв",
@@ -75,20 +81,14 @@
         {
             "time": "00:32:28",
             "coordinate": 16231,
-            "object_name": "repairing_crew_1",
+            "object_name": "repairing_crew_3",
             "message": "окончание марша"
         },
         {
             "time": "00:32:28",
             "coordinate": 16231,
-            "object_name": "repairing_crew_1",
+            "object_name": "repairing_crew_3",
             "message": "начало ремонта МВЗ типа 1"
-        },
-        {
-            "time": "00:37:29",
-            "coordinate": 16231,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
         },
         {
             "time": "00:40:11",
@@ -103,34 +103,40 @@
             "message": "начало марша направо"
         },
         {
+            "time": "00:42:30",
+            "coordinate": 14543,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
             "time": "00:47:28",
             "coordinate": 16231,
-            "object_name": "repairing_crew_1",
+            "object_name": "repairing_crew_3",
             "message": "окончание ремонта МВЗ типа 1"
         },
         {
             "time": "00:47:28",
             "coordinate": 16231,
-            "object_name": "repairing_crew_1",
+            "object_name": "repairing_crew_3",
             "message": "начало марша направо"
         },
         {
-            "time": "00:52:29",
-            "coordinate": 13725,
+            "time": "00:57:30",
+            "coordinate": 3717,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "01:04:02",
-            "coordinate": 7943,
+            "time": "01:04:56",
+            "coordinate": 2,
             "object_name": "repairing_crew_1",
             "message": "окончание марша"
         },
         {
-            "time": "01:04:02",
-            "coordinate": 7943,
+            "time": "01:04:56",
+            "coordinate": 2,
             "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 2"
+            "message": "начало марша направо"
         },
         {
             "time": "01:05:54",
@@ -145,20 +151,8 @@
             "message": "начало ремонта МВЗ типа 3"
         },
         {
-            "time": "01:08:15",
-            "coordinate": 7943,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "01:23:15",
-            "coordinate": 7943,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "01:23:15",
-            "coordinate": 7943,
+            "time": "01:11:13",
+            "coordinate": 2534,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
@@ -181,22 +175,40 @@
             "message": "начало марша направо"
         },
         {
-            "time": "01:31:55",
-            "coordinate": 14178,
-            "object_name": "Взрыв",
-            "message": "взрыв типа 3"
-        },
-        {
-            "time": "01:38:15",
-            "coordinate": 7943,
+            "time": "01:26:13",
+            "coordinate": 10642,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "01:38:15",
-            "coordinate": 7943,
+            "time": "01:27:38",
+            "coordinate": 9210,
+            "object_name": "drone_1",
+            "message": "обнаружен взрыв типа 4"
+        },
+        {
+            "time": "01:28:44",
+            "coordinate": 36870,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "01:28:44",
+            "coordinate": 36870,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "01:29:47",
+            "coordinate": 11358,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "01:31:55",
+            "coordinate": 14178,
+            "object_name": "Взрыв",
+            "message": "взрыв типа 3"
         },
         {
             "time": "01:41:13",
@@ -205,28 +217,22 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "01:46:44",
+            "time": "01:43:44",
             "coordinate": 36870,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "01:46:44",
+            "time": "01:43:44",
             "coordinate": 36870,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
+            "object_name": "repairing_crew_3",
+            "message": "начало марша направо"
         },
         {
-            "time": "01:49:02",
-            "coordinate": 7943,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 2"
-        },
-        {
-            "time": "01:49:02",
-            "coordinate": 7943,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша налево"
+            "time": "01:44:47",
+            "coordinate": 19930,
+            "object_name": "drone_1",
+            "message": "начало патрулирования БПЛА"
         },
         {
             "time": "01:49:51",
@@ -235,52 +241,94 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "01:53:15",
-            "coordinate": 5835,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
+            "time": "01:50:00",
+            "coordinate": 40000,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
         },
         {
-            "time": "01:56:38",
-            "coordinate": 9210,
-            "object_name": "drone_1",
-            "message": "обнаружен взрыв типа 4"
+            "time": "01:50:00",
+            "coordinate": 40000,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша налево"
         },
         {
-            "time": "02:01:42",
-            "coordinate": 4148,
+            "time": "01:52:16",
+            "coordinate": 22455,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
         {
-            "time": "02:01:44",
-            "coordinate": 36870,
+            "time": "01:53:56",
+            "coordinate": 14178,
             "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
+            "message": "окончание марша"
         },
         {
-            "time": "02:01:44",
-            "coordinate": 36870,
+            "time": "01:53:56",
+            "coordinate": 14178,
             "object_name": "repairing_crew_2",
-            "message": "начало марша направо"
+            "message": "начало ремонта МВЗ типа 3"
         },
         {
-            "time": "02:04:56",
-            "coordinate": 0,
+            "time": "02:05:00",
+            "coordinate": 30036,
             "object_name": "repairing_crew_1",
             "message": "окончание марша"
         },
         {
-            "time": "02:04:56",
-            "coordinate": 0,
+            "time": "02:05:00",
+            "coordinate": 30036,
             "object_name": "repairing_crew_1",
-            "message": "начало марша направо"
+            "message": "начало ремонта МВЗ типа 1"
         },
         {
-            "time": "02:16:42",
-            "coordinate": 5882,
+            "time": "02:07:16",
+            "coordinate": 30036,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
+        },
+        {
+            "time": "02:11:56",
+            "coordinate": 14178,
+            "object_name": "repairing_crew_2",
+            "message": "окончание ремонта МВЗ типа 3"
+        },
+        {
+            "time": "02:11:56",
+            "coordinate": 14178,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша налево"
+        },
+        {
+            "time": "02:16:57",
+            "coordinate": 11668,
+            "object_name": "repairing_crew_2",
+            "message": "окончание марша"
+        },
+        {
+            "time": "02:16:57",
+            "coordinate": 11668,
+            "object_name": "repairing_crew_2",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "02:17:16",
+            "coordinate": 30036,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "02:20:00",
+            "coordinate": 30036,
+            "object_name": "repairing_crew_1",
+            "message": "окончание ремонта МВЗ типа 1"
+        },
+        {
+            "time": "02:20:00",
+            "coordinate": 30036,
+            "object_name": "repairing_crew_1",
+            "message": "начало марша направо"
         },
         {
             "time": "02:22:18",
@@ -295,22 +343,34 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "02:34:35",
-            "coordinate": 13771,
+            "time": "02:31:57",
+            "coordinate": 11668,
+            "object_name": "repairing_crew_2",
+            "message": "окончание ремонта МВЗ типа 4"
+        },
+        {
+            "time": "02:31:57",
+            "coordinate": 11668,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша налево"
+        },
+        {
+            "time": "02:32:16",
+            "coordinate": 23909,
+            "object_name": "drone_1",
+            "message": "начало патрулирования БПЛА"
+        },
+        {
+            "time": "02:33:40",
+            "coordinate": 25311,
+            "object_name": "drone_1",
+            "message": "обнаружен взрыв типа 4"
+        },
+        {
+            "time": "02:35:46",
+            "coordinate": 23208,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "02:47:08",
-            "coordinate": 14178,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "02:47:08",
-            "coordinate": 14178,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 3"
         },
         {
             "time": "02:49:28",
@@ -319,70 +379,46 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "02:49:35",
-            "coordinate": 22322,
+            "time": "02:50:46",
+            "coordinate": 14658,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "02:52:34",
-            "coordinate": 25311,
-            "object_name": "drone_1",
-            "message": "обнаружен взрыв типа 4"
+            "time": "02:53:12",
+            "coordinate": 8404,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
         },
         {
-            "time": "02:54:04",
-            "coordinate": 23816,
+            "time": "02:53:12",
+            "coordinate": 8404,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "02:58:16",
+            "coordinate": 12159,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
         {
-            "time": "03:05:01",
-            "coordinate": 30036,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
+            "time": "03:08:12",
+            "coordinate": 8404,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "03:05:01",
-            "coordinate": 30036,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 1"
-        },
-        {
-            "time": "03:05:08",
-            "coordinate": 14178,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 3"
-        },
-        {
-            "time": "03:05:08",
-            "coordinate": 14178,
-            "object_name": "repairing_crew_2",
+            "time": "03:08:12",
+            "coordinate": 8404,
+            "object_name": "repairing_crew_3",
             "message": "начало марша налево"
         },
         {
-            "time": "03:09:04",
-            "coordinate": 30036,
+            "time": "03:13:16",
+            "coordinate": 3410,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "03:09:04",
-            "coordinate": 30036,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "03:10:09",
-            "coordinate": 11668,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "03:10:09",
-            "coordinate": 11668,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
         },
         {
             "time": "03:16:22",
@@ -403,46 +439,34 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "03:20:01",
-            "coordinate": 30036,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 1"
+            "time": "03:17:49",
+            "coordinate": 13212,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
         },
         {
-            "time": "03:20:01",
-            "coordinate": 30036,
+            "time": "03:17:49",
+            "coordinate": 13212,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "03:20:05",
+            "coordinate": 1,
+            "object_name": "repairing_crew_1",
+            "message": "окончание марша"
+        },
+        {
+            "time": "03:20:05",
+            "coordinate": 1,
             "object_name": "repairing_crew_1",
             "message": "начало марша направо"
         },
         {
-            "time": "03:24:04",
-            "coordinate": 32062,
+            "time": "03:26:41",
+            "coordinate": 2836,
             "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "03:25:09",
-            "coordinate": 11668,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
-        },
-        {
-            "time": "03:25:09",
-            "coordinate": 11668,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "03:30:04",
-            "coordinate": 9210,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "03:30:04",
-            "coordinate": 9210,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
+            "message": "окончание патрулирования БПЛА"
         },
         {
             "time": "03:30:33",
@@ -451,22 +475,28 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "03:30:50",
-            "coordinate": 35298,
+            "time": "03:32:49",
+            "coordinate": 13212,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 4"
+        },
+        {
+            "time": "03:32:49",
+            "coordinate": 13212,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша направо"
+        },
+        {
+            "time": "03:41:41",
+            "coordinate": 10792,
             "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
+            "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "03:37:07",
-            "coordinate": 38583,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "03:37:07",
-            "coordinate": 38583,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 1"
+            "time": "03:43:49",
+            "coordinate": 8652,
+            "object_name": "drone_1",
+            "message": "обнаружен взрыв типа 4"
         },
         {
             "time": "03:44:40",
@@ -475,64 +505,10 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "03:45:04",
-            "coordinate": 9210,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
-        },
-        {
-            "time": "03:45:04",
-            "coordinate": 9210,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "03:45:50",
-            "coordinate": 38583,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "03:45:50",
-            "coordinate": 38583,
+            "time": "03:47:27",
+            "coordinate": 12283,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "03:46:11",
-            "coordinate": 8652,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "03:46:11",
-            "coordinate": 8652,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
-        },
-        {
-            "time": "03:52:07",
-            "coordinate": 38583,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 1"
-        },
-        {
-            "time": "03:52:07",
-            "coordinate": 38583,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша направо"
-        },
-        {
-            "time": "03:54:57",
-            "coordinate": 40000,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "03:54:57",
-            "coordinate": 40000,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша налево"
         },
         {
             "time": "03:59:22",
@@ -541,76 +517,52 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "04:00:50",
-            "coordinate": 37059,
+            "time": "03:59:36",
+            "coordinate": 19755,
+            "object_name": "repairing_crew_1",
+            "message": "окончание марша"
+        },
+        {
+            "time": "03:59:36",
+            "coordinate": 19755,
+            "object_name": "repairing_crew_1",
+            "message": "начало ремонта МВЗ типа 2"
+        },
+        {
+            "time": "04:00:09",
+            "coordinate": 26873,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "04:00:09",
+            "coordinate": 26873,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 1"
+        },
+        {
+            "time": "04:02:27",
+            "coordinate": 19755,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "04:01:11",
-            "coordinate": 8652,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
-        },
-        {
-            "time": "04:01:11",
-            "coordinate": 8652,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "04:01:40",
-            "coordinate": 8404,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "04:01:40",
-            "coordinate": 8404,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
-        },
-        {
-            "time": "04:08:11",
-            "coordinate": 35589,
+            "time": "04:12:27",
+            "coordinate": 19755,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
         {
-            "time": "04:08:59",
-            "coordinate": 32981,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
+            "time": "04:15:09",
+            "coordinate": 26873,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 1"
         },
         {
-            "time": "04:08:59",
-            "coordinate": 32981,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 1"
-        },
-        {
-            "time": "04:16:40",
-            "coordinate": 8404,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
-        },
-        {
-            "time": "04:16:40",
-            "coordinate": 8404,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "04:18:35",
-            "coordinate": 9359,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "04:18:35",
-            "coordinate": 9359,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
+            "time": "04:15:09",
+            "coordinate": 26873,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша направо"
         },
         {
             "time": "04:19:57",
@@ -625,122 +577,110 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "04:23:11",
+            "time": "04:27:22",
             "coordinate": 32981,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "04:23:11",
-            "coordinate": 32981,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "04:23:59",
-            "coordinate": 32981,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 1"
-        },
-        {
-            "time": "04:23:59",
-            "coordinate": 32981,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "04:33:35",
-            "coordinate": 9359,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
-        },
-        {
-            "time": "04:33:35",
-            "coordinate": 9359,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша направо"
-        },
-        {
-            "time": "04:36:12",
-            "coordinate": 26873,
-            "object_name": "repairing_crew_1",
+            "object_name": "repairing_crew_3",
             "message": "окончание марша"
         },
         {
-            "time": "04:36:12",
-            "coordinate": 26873,
-            "object_name": "repairing_crew_1",
+            "time": "04:27:22",
+            "coordinate": 32981,
+            "object_name": "repairing_crew_3",
             "message": "начало ремонта МВЗ типа 1"
         },
         {
-            "time": "04:38:11",
-            "coordinate": 26873,
+            "time": "04:27:27",
+            "coordinate": 19755,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "04:38:11",
-            "coordinate": 26873,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "04:41:17",
-            "coordinate": 13212,
+            "time": "04:30:19",
+            "coordinate": 9359,
             "object_name": "repairing_crew_2",
             "message": "окончание марша"
         },
         {
-            "time": "04:41:17",
-            "coordinate": 13212,
+            "time": "04:30:19",
+            "coordinate": 9359,
             "object_name": "repairing_crew_2",
             "message": "начало ремонта МВЗ типа 4"
         },
         {
-            "time": "04:51:12",
-            "coordinate": 26873,
-            "object_name": "repairing_crew_1",
+            "time": "04:37:27",
+            "coordinate": 19755,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "04:42:22",
+            "coordinate": 32981,
+            "object_name": "repairing_crew_3",
             "message": "окончание ремонта МВЗ типа 1"
         },
         {
-            "time": "04:51:12",
-            "coordinate": 26873,
+            "time": "04:42:22",
+            "coordinate": 32981,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша направо"
+        },
+        {
+            "time": "04:44:36",
+            "coordinate": 19755,
             "object_name": "repairing_crew_1",
-            "message": "начало марша налево"
+            "message": "окончание ремонта МВЗ типа 2"
         },
         {
-            "time": "04:53:11",
-            "coordinate": 25883,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
+            "time": "04:44:36",
+            "coordinate": 19755,
+            "object_name": "repairing_crew_1",
+            "message": "начало марша направо"
         },
         {
-            "time": "04:56:17",
-            "coordinate": 13212,
+            "time": "04:45:19",
+            "coordinate": 9359,
             "object_name": "repairing_crew_2",
             "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "04:56:17",
-            "coordinate": 13212,
+            "time": "04:45:19",
+            "coordinate": 9359,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша налево"
+        },
+        {
+            "time": "04:52:27",
+            "coordinate": 15835,
+            "object_name": "drone_1",
+            "message": "начало патрулирования БПЛА"
+        },
+        {
+            "time": "05:01:56",
+            "coordinate": 23195,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "05:01:56",
+            "coordinate": 23195,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 1"
+        },
+        {
+            "time": "05:04:03",
+            "coordinate": 0,
+            "object_name": "repairing_crew_2",
+            "message": "окончание марша"
+        },
+        {
+            "time": "05:04:03",
+            "coordinate": 0,
             "object_name": "repairing_crew_2",
             "message": "начало марша направо"
         },
         {
-            "time": "04:58:33",
-            "coordinate": 23195,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "04:58:33",
-            "coordinate": 23195,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 1"
-        },
-        {
-            "time": "05:05:52",
-            "coordinate": 23195,
+            "time": "05:04:57",
+            "coordinate": 13336,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
@@ -751,52 +691,52 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "05:13:33",
+            "time": "05:16:56",
             "coordinate": 23195,
-            "object_name": "repairing_crew_1",
+            "object_name": "repairing_crew_3",
             "message": "окончание ремонта МВЗ типа 1"
         },
         {
-            "time": "05:13:33",
+            "time": "05:16:56",
             "coordinate": 23195,
-            "object_name": "repairing_crew_1",
+            "object_name": "repairing_crew_3",
             "message": "начало марша налево"
         },
         {
-            "time": "05:20:09",
-            "coordinate": 19899,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "05:20:09",
-            "coordinate": 19899,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 1"
-        },
-        {
-            "time": "05:20:29",
-            "coordinate": 25311,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "05:20:29",
-            "coordinate": 25311,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
-        },
-        {
-            "time": "05:20:52",
-            "coordinate": 19899,
+            "time": "05:19:57",
+            "coordinate": 2088,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "05:20:52",
-            "coordinate": 19899,
+            "time": "05:23:05",
+            "coordinate": 1045,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "05:23:32",
+            "coordinate": 19899,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "05:23:32",
+            "coordinate": 19899,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 1"
+        },
+        {
+            "time": "05:24:07",
+            "coordinate": 2,
+            "object_name": "repairing_crew_1",
+            "message": "окончание марша"
+        },
+        {
+            "time": "05:24:07",
+            "coordinate": 2,
+            "object_name": "repairing_crew_1",
+            "message": "начало марша направо"
         },
         {
             "time": "05:34:54",
@@ -805,52 +745,22 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "05:35:09",
-            "coordinate": 19899,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 1"
-        },
-        {
-            "time": "05:35:09",
-            "coordinate": 19899,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "05:35:26",
-            "coordinate": 19755,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "05:35:26",
-            "coordinate": 19755,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 2"
-        },
-        {
-            "time": "05:35:29",
-            "coordinate": 25311,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
-        },
-        {
-            "time": "05:35:29",
-            "coordinate": 25311,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша направо"
-        },
-        {
-            "time": "05:35:52",
-            "coordinate": 19755,
+            "time": "05:38:05",
+            "coordinate": 6979,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "05:35:52",
-            "coordinate": 19755,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
+            "time": "05:38:32",
+            "coordinate": 19899,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 1"
+        },
+        {
+            "time": "05:38:32",
+            "coordinate": 19899,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша налево"
         },
         {
             "time": "05:41:17",
@@ -859,38 +769,56 @@
             "message": "взрыв типа 3"
         },
         {
-            "time": "05:50:52",
-            "coordinate": 19755,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "05:50:52",
-            "coordinate": 19755,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "06:04:52",
-            "coordinate": 40000,
+            "time": "05:44:45",
+            "coordinate": 20353,
             "object_name": "repairing_crew_2",
             "message": "окончание марша"
         },
         {
-            "time": "06:04:52",
-            "coordinate": 40000,
+            "time": "05:44:45",
+            "coordinate": 20353,
             "object_name": "repairing_crew_2",
-            "message": "начало марша налево"
+            "message": "начало ремонта МВЗ типа 3"
         },
         {
-            "time": "06:05:52",
-            "coordinate": 19755,
+            "time": "05:45:35",
+            "coordinate": 9478,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "06:00:35",
+            "coordinate": 18227,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "06:05:52",
-            "coordinate": 19755,
+            "time": "06:02:45",
+            "coordinate": 20353,
+            "object_name": "repairing_crew_2",
+            "message": "окончание ремонта МВЗ типа 3"
+        },
+        {
+            "time": "06:02:45",
+            "coordinate": 20353,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша направо"
+        },
+        {
+            "time": "06:05:15",
+            "coordinate": 6543,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "06:05:15",
+            "coordinate": 6543,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "06:13:04",
+            "coordinate": 20726,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
@@ -901,22 +829,16 @@
             "message": "взрыв типа 3"
         },
         {
-            "time": "06:20:26",
-            "coordinate": 19755,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 2"
+            "time": "06:20:15",
+            "coordinate": 6543,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "06:20:26",
-            "coordinate": 19755,
-            "object_name": "repairing_crew_1",
+            "time": "06:20:15",
+            "coordinate": 6543,
+            "object_name": "repairing_crew_3",
             "message": "начало марша налево"
-        },
-        {
-            "time": "06:20:52",
-            "coordinate": 19540,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
         },
         {
             "time": "06:21:27",
@@ -925,75 +847,105 @@
             "message": "взрыв типа 3"
         },
         {
-            "time": "06:21:41",
-            "coordinate": 20353,
-            "object_name": "drone_1",
-            "message": "обнаружен взрыв типа 3"
-        },
-        {
-            "time": "06:22:54",
-            "coordinate": 19135,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "06:37:54",
-            "coordinate": 11027,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "06:40:52",
+            "time": "06:27:21",
             "coordinate": 8055,
-            "object_name": "drone_1",
-            "message": "обнаружен взрыв типа 3"
-        },
-        {
-            "time": "06:42:21",
-            "coordinate": 9541,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "06:44:10",
-            "coordinate": 20353,
             "object_name": "repairing_crew_2",
             "message": "окончание марша"
         },
         {
-            "time": "06:44:10",
-            "coordinate": 20353,
+            "time": "06:27:21",
+            "coordinate": 8055,
             "object_name": "repairing_crew_2",
             "message": "начало ремонта МВЗ типа 3"
         },
         {
-            "time": "06:57:21",
-            "coordinate": 1299,
+            "time": "06:28:04",
+            "coordinate": 31973,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "06:59:57",
-            "coordinate": 1,
+            "time": "06:30:08",
+            "coordinate": 34035,
+            "object_name": "drone_1",
+            "message": "обнаружен взрыв типа 1"
+        },
+        {
+            "time": "06:31:10",
+            "coordinate": 33003,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "06:41:18",
+            "coordinate": 38583,
             "object_name": "repairing_crew_1",
             "message": "окончание марша"
         },
         {
-            "time": "06:59:57",
-            "coordinate": 1,
+            "time": "06:41:18",
+            "coordinate": 38583,
             "object_name": "repairing_crew_1",
-            "message": "начало марша направо"
+            "message": "начало ремонта МВЗ типа 1"
         },
         {
-            "time": "07:02:10",
-            "coordinate": 20353,
+            "time": "06:45:21",
+            "coordinate": 8055,
             "object_name": "repairing_crew_2",
             "message": "окончание ремонта МВЗ типа 3"
         },
         {
-            "time": "07:02:10",
-            "coordinate": 20353,
+            "time": "06:45:21",
+            "coordinate": 8055,
             "object_name": "repairing_crew_2",
+            "message": "начало марша налево"
+        },
+        {
+            "time": "06:46:10",
+            "coordinate": 38583,
+            "object_name": "drone_1",
+            "message": "начало патрулирования БПЛА"
+        },
+        {
+            "time": "06:48:28",
+            "coordinate": 6498,
+            "object_name": "repairing_crew_2",
+            "message": "окончание марша"
+        },
+        {
+            "time": "06:48:28",
+            "coordinate": 6498,
+            "object_name": "repairing_crew_2",
+            "message": "начало ремонта МВЗ типа 3"
+        },
+        {
+            "time": "06:56:10",
+            "coordinate": 38583,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "06:56:18",
+            "coordinate": 38583,
+            "object_name": "repairing_crew_1",
+            "message": "окончание ремонта МВЗ типа 1"
+        },
+        {
+            "time": "06:56:18",
+            "coordinate": 38583,
+            "object_name": "repairing_crew_1",
+            "message": "начало марша направо"
+        },
+        {
+            "time": "06:59:08",
+            "coordinate": 40000,
+            "object_name": "repairing_crew_1",
+            "message": "окончание марша"
+        },
+        {
+            "time": "06:59:08",
+            "coordinate": 40000,
+            "object_name": "repairing_crew_1",
             "message": "начало марша налево"
         },
         {
@@ -1003,16 +955,64 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "07:06:05",
-            "coordinate": 3061,
+            "time": "07:06:22",
+            "coordinate": 36386,
+            "object_name": "repairing_crew_1",
+            "message": "окончание марша"
+        },
+        {
+            "time": "07:06:22",
+            "coordinate": 36386,
+            "object_name": "repairing_crew_1",
+            "message": "начало ремонта МВЗ типа 1"
+        },
+        {
+            "time": "07:06:28",
+            "coordinate": 6498,
+            "object_name": "repairing_crew_2",
+            "message": "окончание ремонта МВЗ типа 3"
+        },
+        {
+            "time": "07:06:28",
+            "coordinate": 6498,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша налево"
+        },
+        {
+            "time": "07:11:10",
+            "coordinate": 36386,
+            "object_name": "drone_1",
+            "message": "начало патрулирования БПЛА"
+        },
+        {
+            "time": "07:18:24",
+            "coordinate": 36386,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
         {
-            "time": "07:21:05",
-            "coordinate": 10560,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
+            "time": "07:19:28",
+            "coordinate": 0,
+            "object_name": "repairing_crew_2",
+            "message": "окончание марша"
+        },
+        {
+            "time": "07:19:28",
+            "coordinate": 0,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша направо"
+        },
+        {
+            "time": "07:21:22",
+            "coordinate": 36386,
+            "object_name": "repairing_crew_1",
+            "message": "окончание ремонта МВЗ типа 1"
+        },
+        {
+            "time": "07:21:22",
+            "coordinate": 36386,
+            "object_name": "repairing_crew_1",
+            "message": "начало марша налево"
         },
         {
             "time": "07:22:18",
@@ -1021,26 +1021,20 @@
             "message": "взрыв типа 2"
         },
         {
-            "time": "07:23:35",
-            "coordinate": 8055,
+            "time": "07:33:24",
+            "coordinate": 30370,
             "object_name": "drone_1",
-            "message": "обнаружен взрыв типа 3"
+            "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "07:26:46",
-            "coordinate": 8055,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
+            "time": "07:35:42",
+            "coordinate": 28063,
+            "object_name": "drone_1",
+            "message": "обнаружен взрыв типа 2"
         },
         {
-            "time": "07:26:46",
-            "coordinate": 8055,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 3"
-        },
-        {
-            "time": "07:27:20",
-            "coordinate": 11812,
+            "time": "07:36:51",
+            "coordinate": 29217,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
@@ -1051,46 +1045,28 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "07:42:20",
-            "coordinate": 21189,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
             "time": "07:43:25",
             "coordinate": 8416,
             "object_name": "Взрыв",
             "message": "взрыв типа 4"
         },
         {
-            "time": "07:44:46",
-            "coordinate": 8055,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 3"
-        },
-        {
-            "time": "07:44:46",
-            "coordinate": 8055,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "07:47:47",
-            "coordinate": 6543,
-            "object_name": "repairing_crew_2",
+            "time": "07:46:57",
+            "coordinate": 39999,
+            "object_name": "repairing_crew_3",
             "message": "окончание марша"
         },
         {
-            "time": "07:47:47",
-            "coordinate": 6543,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
+            "time": "07:46:57",
+            "coordinate": 39999,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша налево"
         },
         {
-            "time": "07:49:50",
-            "coordinate": 23688,
+            "time": "07:51:51",
+            "coordinate": 21143,
             "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
+            "message": "начало патрулирования БПЛА"
         },
         {
             "time": "07:55:41",
@@ -1099,22 +1075,22 @@
             "message": "взрыв типа 3"
         },
         {
-            "time": "07:56:05",
-            "coordinate": 28063,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "07:56:05",
-            "coordinate": 28063,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 2"
-        },
-        {
             "time": "07:57:29",
             "coordinate": 26109,
             "object_name": "Взрыв",
             "message": "взрыв типа 1"
+        },
+        {
+            "time": "07:58:55",
+            "coordinate": 34019,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "07:58:55",
+            "coordinate": 34019,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 4"
         },
         {
             "time": "08:02:32",
@@ -1123,40 +1099,22 @@
             "message": "взрыв типа 3"
         },
         {
-            "time": "08:02:47",
-            "coordinate": 6543,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
+            "time": "08:07:11",
+            "coordinate": 15810,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
         },
         {
-            "time": "08:02:47",
-            "coordinate": 6543,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "08:02:53",
-            "coordinate": 6498,
+            "time": "08:11:59",
+            "coordinate": 26253,
             "object_name": "repairing_crew_2",
             "message": "окончание марша"
         },
         {
-            "time": "08:02:53",
-            "coordinate": 6498,
+            "time": "08:11:59",
+            "coordinate": 26253,
             "object_name": "repairing_crew_2",
             "message": "начало ремонта МВЗ типа 3"
-        },
-        {
-            "time": "08:04:50",
-            "coordinate": 28063,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "08:04:50",
-            "coordinate": 28063,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
         },
         {
             "time": "08:12:01",
@@ -1165,34 +1123,52 @@
             "message": "взрыв типа 1"
         },
         {
+            "time": "08:13:55",
+            "coordinate": 34019,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 4"
+        },
+        {
+            "time": "08:13:55",
+            "coordinate": 34019,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша налево"
+        },
+        {
             "time": "08:19:07",
             "coordinate": 30491,
             "object_name": "Взрыв",
             "message": "взрыв типа 3"
         },
         {
-            "time": "08:19:50",
-            "coordinate": 28063,
+            "time": "08:22:11",
+            "coordinate": 25639,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "08:19:50",
-            "coordinate": 28063,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
+            "time": "08:23:08",
+            "coordinate": 26109,
+            "object_name": "repairing_crew_1",
+            "message": "окончание марша"
         },
         {
-            "time": "08:20:53",
-            "coordinate": 6498,
+            "time": "08:23:08",
+            "coordinate": 26109,
+            "object_name": "repairing_crew_1",
+            "message": "начало ремонта МВЗ типа 1"
+        },
+        {
+            "time": "08:29:59",
+            "coordinate": 26253,
             "object_name": "repairing_crew_2",
             "message": "окончание ремонта МВЗ типа 3"
         },
         {
-            "time": "08:20:53",
-            "coordinate": 6498,
+            "time": "08:29:59",
+            "coordinate": 26253,
             "object_name": "repairing_crew_2",
-            "message": "начало марша налево"
+            "message": "начало марша направо"
         },
         {
             "time": "08:30:26",
@@ -1207,26 +1183,8 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "08:33:53",
-            "coordinate": 1,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "08:33:53",
-            "coordinate": 1,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша направо"
-        },
-        {
-            "time": "08:34:50",
-            "coordinate": 28063,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "08:34:50",
-            "coordinate": 28063,
+            "time": "08:32:39",
+            "coordinate": 26109,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
@@ -1237,14 +1195,26 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "08:41:05",
-            "coordinate": 28063,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 2"
+            "time": "08:37:14",
+            "coordinate": 29878,
+            "object_name": "repairing_crew_2",
+            "message": "окончание марша"
         },
         {
-            "time": "08:41:05",
-            "coordinate": 28063,
+            "time": "08:37:14",
+            "coordinate": 29878,
+            "object_name": "repairing_crew_2",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "08:38:08",
+            "coordinate": 26109,
+            "object_name": "repairing_crew_1",
+            "message": "окончание ремонта МВЗ типа 1"
+        },
+        {
+            "time": "08:38:08",
+            "coordinate": 26109,
             "object_name": "repairing_crew_1",
             "message": "начало марша направо"
         },
@@ -1255,46 +1225,64 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "08:44:57",
+            "time": "08:45:54",
             "coordinate": 29992,
             "object_name": "repairing_crew_1",
             "message": "окончание марша"
         },
         {
-            "time": "08:44:57",
+            "time": "08:45:54",
             "coordinate": 29992,
             "object_name": "repairing_crew_1",
             "message": "начало ремонта МВЗ типа 1"
         },
         {
-            "time": "08:49:50",
+            "time": "08:47:39",
             "coordinate": 29992,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "08:49:50",
+            "time": "08:48:09",
+            "coordinate": 30491,
+            "object_name": "drone_1",
+            "message": "обнаружен взрыв типа 3"
+        },
+        {
+            "time": "08:48:39",
             "coordinate": 29992,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "08:50:16",
-            "coordinate": 8197,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "08:50:16",
-            "coordinate": 8197,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 3"
         },
         {
             "time": "08:50:51",
             "coordinate": 36923,
             "object_name": "Взрыв",
             "message": "взрыв типа 4"
+        },
+        {
+            "time": "08:51:22",
+            "coordinate": 36923,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "08:51:22",
+            "coordinate": 36923,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "08:52:14",
+            "coordinate": 29878,
+            "object_name": "repairing_crew_2",
+            "message": "окончание ремонта МВЗ типа 4"
+        },
+        {
+            "time": "08:52:14",
+            "coordinate": 29878,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша направо"
         },
         {
             "time": "08:53:46",
@@ -1309,68 +1297,44 @@
             "message": "взрыв типа 3"
         },
         {
-            "time": "08:59:57",
+            "time": "09:00:54",
             "coordinate": 29992,
             "object_name": "repairing_crew_1",
             "message": "окончание ремонта МВЗ типа 1"
         },
         {
-            "time": "08:59:57",
+            "time": "09:00:54",
             "coordinate": 29992,
             "object_name": "repairing_crew_1",
             "message": "начало марша направо"
         },
         {
-            "time": "09:04:50",
-            "coordinate": 32436,
+            "time": "09:03:39",
+            "coordinate": 31372,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "09:06:25",
-            "coordinate": 34019,
-            "object_name": "drone_1",
-            "message": "обнаружен взрыв типа 4"
+            "time": "09:06:22",
+            "coordinate": 36923,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "09:07:13",
-            "coordinate": 33227,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "09:08:02",
-            "coordinate": 34035,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "09:08:02",
-            "coordinate": 34035,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 1"
-        },
-        {
-            "time": "09:08:16",
-            "coordinate": 8197,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 3"
-        },
-        {
-            "time": "09:08:16",
-            "coordinate": 8197,
-            "object_name": "repairing_crew_2",
+            "time": "09:06:22",
+            "coordinate": 36923,
+            "object_name": "repairing_crew_3",
             "message": "начало марша направо"
         },
         {
-            "time": "09:08:43",
-            "coordinate": 8416,
+            "time": "09:09:28",
+            "coordinate": 38498,
             "object_name": "repairing_crew_2",
             "message": "окончание марша"
         },
         {
-            "time": "09:08:43",
-            "coordinate": 8416,
+            "time": "09:09:28",
+            "coordinate": 38498,
             "object_name": "repairing_crew_2",
             "message": "начало ремонта МВЗ типа 4"
         },
@@ -1387,28 +1351,34 @@
             "message": "взрыв типа 2"
         },
         {
-            "time": "09:22:13",
-            "coordinate": 34035,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
+            "time": "09:12:31",
+            "coordinate": 39999,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
         },
         {
-            "time": "09:22:13",
-            "coordinate": 34035,
+            "time": "09:12:31",
+            "coordinate": 39999,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша налево"
+        },
+        {
+            "time": "09:13:18",
+            "coordinate": 36194,
+            "object_name": "repairing_crew_1",
+            "message": "окончание марша"
+        },
+        {
+            "time": "09:13:18",
+            "coordinate": 36194,
+            "object_name": "repairing_crew_1",
+            "message": "начало ремонта МВЗ типа 2"
+        },
+        {
+            "time": "09:18:29",
+            "coordinate": 36194,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "09:23:02",
-            "coordinate": 34035,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 1"
-        },
-        {
-            "time": "09:23:02",
-            "coordinate": 34035,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша направо"
         },
         {
             "time": "09:23:06",
@@ -1417,52 +1387,22 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "09:23:43",
-            "coordinate": 8416,
+            "time": "09:24:28",
+            "coordinate": 38498,
             "object_name": "repairing_crew_2",
             "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "09:23:43",
-            "coordinate": 8416,
+            "time": "09:24:28",
+            "coordinate": 38498,
             "object_name": "repairing_crew_2",
             "message": "начало марша направо"
         },
         {
-            "time": "09:27:21",
-            "coordinate": 36194,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "09:27:21",
-            "coordinate": 36194,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 2"
-        },
-        {
-            "time": "09:37:13",
+            "time": "09:33:29",
             "coordinate": 36194,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "09:37:13",
-            "coordinate": 36194,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "09:38:46",
-            "coordinate": 15944,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "09:38:46",
-            "coordinate": 15944,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 3"
         },
         {
             "time": "09:40:46",
@@ -1471,27 +1411,27 @@
             "message": "взрыв типа 2"
         },
         {
-            "time": "09:52:13",
-            "coordinate": 36194,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "09:52:13",
+            "time": "09:41:05",
             "coordinate": 36194,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
         {
-            "time": "09:56:46",
-            "coordinate": 15944,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 3"
+            "time": "09:56:05",
+            "coordinate": 36194,
+            "object_name": "drone_1",
+            "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "09:56:46",
-            "coordinate": 15944,
-            "object_name": "repairing_crew_2",
+            "time": "09:58:18",
+            "coordinate": 36194,
+            "object_name": "repairing_crew_1",
+            "message": "окончание ремонта МВЗ типа 2"
+        },
+        {
+            "time": "09:58:18",
+            "coordinate": 36194,
+            "object_name": "repairing_crew_1",
             "message": "начало марша направо"
         },
         {
@@ -1501,20 +1441,38 @@
             "message": "взрыв типа 3"
         },
         {
+            "time": "10:05:55",
+            "coordinate": 40000,
+            "object_name": "repairing_crew_1",
+            "message": "окончание марша"
+        },
+        {
+            "time": "10:05:55",
+            "coordinate": 40000,
+            "object_name": "repairing_crew_1",
+            "message": "начало марша налево"
+        },
+        {
             "time": "10:06:16",
             "coordinate": 18725,
             "object_name": "Взрыв",
             "message": "взрыв типа 1"
         },
         {
-            "time": "10:07:13",
-            "coordinate": 36194,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
+            "time": "10:09:35",
+            "coordinate": 15944,
+            "object_name": "repairing_crew_2",
+            "message": "окончание марша"
         },
         {
-            "time": "10:07:13",
-            "coordinate": 36194,
+            "time": "10:09:35",
+            "coordinate": 15944,
+            "object_name": "repairing_crew_2",
+            "message": "начало ремонта МВЗ типа 3"
+        },
+        {
+            "time": "10:09:54",
+            "coordinate": 38119,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
@@ -1525,64 +1483,52 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "10:12:21",
-            "coordinate": 36194,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 2"
-        },
-        {
-            "time": "10:12:21",
-            "coordinate": 36194,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша направо"
-        },
-        {
-            "time": "10:12:44",
-            "coordinate": 36386,
-            "object_name": "repairing_crew_1",
+            "time": "10:15:42",
+            "coordinate": 8416,
+            "object_name": "repairing_crew_3",
             "message": "окончание марша"
         },
         {
-            "time": "10:12:44",
-            "coordinate": 36386,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 1"
+            "time": "10:15:42",
+            "coordinate": 8416,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 4"
         },
         {
-            "time": "10:17:23",
-            "coordinate": 26253,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "10:17:23",
-            "coordinate": 26253,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 3"
-        },
-        {
-            "time": "10:22:13",
-            "coordinate": 36386,
+            "time": "10:24:54",
+            "coordinate": 30512,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "10:22:13",
-            "coordinate": 36386,
+            "time": "10:27:35",
+            "coordinate": 15944,
+            "object_name": "repairing_crew_2",
+            "message": "окончание ремонта МВЗ типа 3"
+        },
+        {
+            "time": "10:27:35",
+            "coordinate": 15944,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша налево"
+        },
+        {
+            "time": "10:28:25",
+            "coordinate": 34035,
             "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
+            "message": "обнаружен взрыв типа 1"
         },
         {
-            "time": "10:27:44",
-            "coordinate": 36386,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 1"
+            "time": "10:30:42",
+            "coordinate": 8416,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "10:27:44",
-            "coordinate": 36386,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша направо"
+            "time": "10:30:42",
+            "coordinate": 8416,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша налево"
         },
         {
             "time": "10:31:34",
@@ -1591,28 +1537,22 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "10:34:58",
-            "coordinate": 40000,
-            "object_name": "repairing_crew_1",
+            "time": "10:32:08",
+            "coordinate": 30320,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "10:33:21",
+            "coordinate": 7087,
+            "object_name": "repairing_crew_3",
             "message": "окончание марша"
         },
         {
-            "time": "10:34:58",
-            "coordinate": 40000,
-            "object_name": "repairing_crew_1",
-            "message": "начало марша налево"
-        },
-        {
-            "time": "10:35:23",
-            "coordinate": 26253,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 3"
-        },
-        {
-            "time": "10:35:23",
-            "coordinate": 26253,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша направо"
+            "time": "10:33:21",
+            "coordinate": 7087,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 1"
         },
         {
             "time": "10:36:19",
@@ -1621,94 +1561,82 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "10:37:13",
-            "coordinate": 38880,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "10:38:07",
-            "coordinate": 39783,
-            "object_name": "drone_1",
-            "message": "обнаружен взрыв типа 3"
-        },
-        {
-            "time": "10:40:06",
-            "coordinate": 37788,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "10:42:39",
-            "coordinate": 29878,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "10:42:39",
-            "coordinate": 29878,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
-        },
-        {
             "time": "10:45:20",
             "coordinate": 36841,
             "object_name": "Взрыв",
             "message": "взрыв типа 1"
         },
         {
-            "time": "10:55:06",
-            "coordinate": 29934,
+            "time": "10:47:08",
+            "coordinate": 38106,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "10:55:10",
-            "coordinate": 29878,
-            "object_name": "drone_1",
-            "message": "обнаружен взрыв типа 4"
+            "time": "10:47:44",
+            "coordinate": 26014,
+            "object_name": "repairing_crew_2",
+            "message": "окончание марша"
         },
         {
-            "time": "10:55:12",
-            "coordinate": 29906,
+            "time": "10:47:44",
+            "coordinate": 26014,
+            "object_name": "repairing_crew_2",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "10:48:21",
+            "coordinate": 7087,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 1"
+        },
+        {
+            "time": "10:48:21",
+            "coordinate": 7087,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша налево"
+        },
+        {
+            "time": "10:48:24",
+            "coordinate": 36841,
+            "object_name": "drone_1",
+            "message": "обнаружен взрыв типа 1"
+        },
+        {
+            "time": "10:50:18",
+            "coordinate": 38738,
             "object_name": "drone_1",
             "message": "окончание патрулирования БПЛА"
         },
         {
-            "time": "10:57:39",
-            "coordinate": 29878,
+            "time": "10:56:24",
+            "coordinate": 3069,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "10:56:24",
+            "coordinate": 3069,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 4"
+        },
+        {
+            "time": "11:02:44",
+            "coordinate": 26014,
             "object_name": "repairing_crew_2",
             "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "10:57:39",
-            "coordinate": 29878,
+            "time": "11:02:44",
+            "coordinate": 26014,
             "object_name": "repairing_crew_2",
             "message": "начало марша направо"
         },
         {
-            "time": "10:58:52",
-            "coordinate": 30491,
-            "object_name": "repairing_crew_2",
-            "message": "окончание марша"
-        },
-        {
-            "time": "10:58:52",
-            "coordinate": 30491,
-            "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 3"
-        },
-        {
-            "time": "11:02:45",
-            "coordinate": 26109,
-            "object_name": "repairing_crew_1",
-            "message": "окончание марша"
-        },
-        {
-            "time": "11:02:45",
-            "coordinate": 26109,
-            "object_name": "repairing_crew_1",
-            "message": "начало ремонта МВЗ типа 1"
+            "time": "11:05:18",
+            "coordinate": 30291,
+            "object_name": "drone_1",
+            "message": "начало патрулирования БПЛА"
         },
         {
             "time": "11:05:30",
@@ -1723,76 +1651,58 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "11:10:12",
-            "coordinate": 26109,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
+            "time": "11:11:24",
+            "coordinate": 3069,
+            "object_name": "repairing_crew_3",
+            "message": "окончание ремонта МВЗ типа 4"
         },
         {
-            "time": "11:10:12",
-            "coordinate": 26109,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "11:16:52",
-            "coordinate": 30491,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 3"
-        },
-        {
-            "time": "11:16:52",
-            "coordinate": 30491,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша направо"
-        },
-        {
-            "time": "11:17:45",
-            "coordinate": 26109,
-            "object_name": "repairing_crew_1",
-            "message": "окончание ремонта МВЗ типа 1"
-        },
-        {
-            "time": "11:17:45",
-            "coordinate": 26109,
-            "object_name": "repairing_crew_1",
+            "time": "11:11:24",
+            "coordinate": 3069,
+            "object_name": "repairing_crew_3",
             "message": "начало марша налево"
         },
         {
-            "time": "11:19:20",
+            "time": "11:15:14",
             "coordinate": 25321,
             "object_name": "repairing_crew_1",
             "message": "окончание марша"
         },
         {
-            "time": "11:19:20",
+            "time": "11:15:14",
             "coordinate": 25321,
             "object_name": "repairing_crew_1",
             "message": "начало ремонта МВЗ типа 2"
         },
         {
-            "time": "11:23:55",
-            "coordinate": 34019,
+            "time": "11:17:32",
+            "coordinate": 1,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "11:17:32",
+            "coordinate": 1,
+            "object_name": "repairing_crew_3",
+            "message": "начало марша направо"
+        },
+        {
+            "time": "11:20:16",
+            "coordinate": 25321,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "11:23:27",
+            "coordinate": 36375,
             "object_name": "repairing_crew_2",
             "message": "окончание марша"
         },
         {
-            "time": "11:23:55",
-            "coordinate": 34019,
+            "time": "11:23:27",
+            "coordinate": 36375,
             "object_name": "repairing_crew_2",
             "message": "начало ремонта МВЗ типа 4"
-        },
-        {
-            "time": "11:25:12",
-            "coordinate": 25321,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "11:25:12",
-            "coordinate": 25321,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
         },
         {
             "time": "11:31:19",
@@ -1801,28 +1711,22 @@
             "message": "взрыв типа 1"
         },
         {
-            "time": "11:38:55",
-            "coordinate": 34019,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
-        },
-        {
-            "time": "11:38:55",
-            "coordinate": 34019,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша направо"
-        },
-        {
-            "time": "11:40:12",
+            "time": "11:35:16",
             "coordinate": 25321,
             "object_name": "drone_1",
             "message": "начало патрулирования БПЛА"
         },
         {
-            "time": "11:40:12",
-            "coordinate": 25321,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
+            "time": "11:38:27",
+            "coordinate": 36375,
+            "object_name": "repairing_crew_2",
+            "message": "окончание ремонта МВЗ типа 4"
+        },
+        {
+            "time": "11:38:27",
+            "coordinate": 36375,
+            "object_name": "repairing_crew_2",
+            "message": "начало марша направо"
         },
         {
             "time": "11:42:46",
@@ -1831,16 +1735,34 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "11:43:38",
-            "coordinate": 36375,
+            "time": "11:45:16",
+            "coordinate": 25321,
+            "object_name": "drone_1",
+            "message": "окончание патрулирования БПЛА"
+        },
+        {
+            "time": "11:45:42",
+            "coordinate": 39999,
             "object_name": "repairing_crew_2",
             "message": "окончание марша"
         },
         {
-            "time": "11:43:38",
-            "coordinate": 36375,
+            "time": "11:45:42",
+            "coordinate": 39999,
             "object_name": "repairing_crew_2",
-            "message": "начало ремонта МВЗ типа 4"
+            "message": "начало марша налево"
+        },
+        {
+            "time": "11:46:26",
+            "coordinate": 14451,
+            "object_name": "repairing_crew_3",
+            "message": "окончание марша"
+        },
+        {
+            "time": "11:46:26",
+            "coordinate": 14451,
+            "object_name": "repairing_crew_3",
+            "message": "начало ремонта МВЗ типа 1"
         },
         {
             "time": "11:51:54",
@@ -1855,38 +1777,14 @@
             "message": "взрыв типа 4"
         },
         {
-            "time": "11:55:12",
-            "coordinate": 25321,
-            "object_name": "drone_1",
-            "message": "начало патрулирования БПЛА"
-        },
-        {
-            "time": "11:55:12",
-            "coordinate": 25321,
-            "object_name": "drone_1",
-            "message": "окончание патрулирования БПЛА"
-        },
-        {
-            "time": "11:58:38",
-            "coordinate": 36375,
-            "object_name": "repairing_crew_2",
-            "message": "окончание ремонта МВЗ типа 4"
-        },
-        {
-            "time": "11:58:38",
-            "coordinate": 36375,
-            "object_name": "repairing_crew_2",
-            "message": "начало марша направо"
-        },
-        {
-            "time": "11:59:44",
-            "coordinate": 36923,
+            "time": "11:57:01",
+            "coordinate": 34346,
             "object_name": "repairing_crew_2",
             "message": "окончание марша"
         },
         {
-            "time": "11:59:44",
-            "coordinate": 36923,
+            "time": "11:57:01",
+            "coordinate": 34346,
             "object_name": "repairing_crew_2",
             "message": "начало ремонта МВЗ типа 4"
         }

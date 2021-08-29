@@ -38,14 +38,37 @@ class Logger:
         xml = dicttoxml(self.json_file_content, custom_root='test', attr_type=False)
         with open(self.xml_path, 'wb') as f:
             f.write(xml)
-        
+
+
+'''
+This is class for repair crew contol
+:methods:
+    choose_explosion_to_move - this method is main control point of repair crew
+'''
+class RepairCrewControlMove:
+    @staticmethod
+    def choose_explosion_to_move(coordinate_now, explosions_found, respons):
+        '''
+        :input:
+            coordinate_now - current coordinate of repair crew
+            explosions_found - explosions found
+            repsons - list of ID explosions, that repair crew can repair
+        :return:
+            coordinate of point to move
+        '''
+        point_to_move = get_nearest(coordinate_now, explosions_found, respons)
+        return point_to_move
+
+
+
+
 
 logger = None
 
 def get_found_explosions(explosions, respons):
     new_explosions = {}
     for explosion_coord, explosion in explosions.items():
-        if explosion.get('ID', 0) in respons:
+        if explosion.get('ID', 0) in respons and explosion.get('vacant', True):
             new_explosions[explosion_coord] = explosion
     return new_explosions
 
@@ -111,6 +134,7 @@ class RepairCrew(object):
         self.field = field
         self.respons = respons
         self.direction = 'Right'
+        self.point_to_move = None
 
     def update_coord(self):
         if self.status == self.Status.MOVING:
@@ -166,14 +190,17 @@ class RepairCrew(object):
                                 self.prev_time = self.env.now
                                 yield self.env.timeout(time)
                         else:
+                            # Here is selections between founded explosions
                             explosions = self.field.explosions.copy()
                             explosions[0] = {}
                             explosions[config.ROAD_LENGTH] = {}
                             nearest_right = get_nearest_right(self.coord, explosions, self.respons)
                             nearest_left = get_nearest_left(self.coord, explosions, self.respons)
-                            self.nearest_point = get_nearest(self.coord, self.field.explosions_found, self.respons)
+                            self.point_to_move = RepairCrewControlMove.choose_explosion_to_move(self.coord, self.field.explosions_found, self.respons)
+                            self.field.explosions_found[self.point_to_move]['vacant'] = False
+                            self.field.explosions[self.point_to_move]['vacant'] = False
 
-                            if self.coord < self.nearest_point:
+                            if self.coord < self.point_to_move:
                                 self.nearest_point = nearest_right
                                 self.direction = 'Right'
                                 diff = self.nearest_point - self.coord
@@ -191,6 +218,16 @@ class RepairCrew(object):
                 self.coord = get_nearest(self.coord, self.field.explosions, self.respons)
                 self.status = self.Status.REPAIRING
             elif self.status == self.Status.REPAIRING:
+                if (self.point_to_move is not None) and (self.coord != self.point_to_move):
+                    self.field.explosions_found[self.point_to_move]['vacant'] = True
+                    self.field.explosions[self.point_to_move]['vacant'] = True
+                
+                self.field.explosions_found[self.coord] = self.field.explosions[self.coord]
+                
+                self.point_to_move = None
+                self.field.explosions_found[self.coord]['vacant'] = False
+                self.field.explosions[self.coord]['vacant'] = False
+
                 if config.DEBUG:
                     logger.log('#debug# repairing', self.name)
                 explosion_id = self.field.explosions[self.coord]['ID']
@@ -201,9 +238,6 @@ class RepairCrew(object):
                 del self.field.explosions[self.coord]
                 self.field.explosions_found.pop(self.coord, None)
                 self.status = self.Status.VACANT
-
-
-
 
         pass
 
