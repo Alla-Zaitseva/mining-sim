@@ -329,6 +329,8 @@ class Dron(object):
                 else:
                     self.direction = 'Right'
                 
+                logger.log(get_current_time_str(self.env), self.coord, self.name, "разворот {}".format(get_direction_rus(self.direction)))
+
                 # if config.DEBUG:
                 #     logger.log('#Debug# {} "{}" разворот теперь в {}'.format(get_current_time_str(self.env), self.name, self.direction))
                 #     logger.log('#debug#', self.coord, self.repair_crew.coord)
@@ -448,6 +450,7 @@ class Field(object):
         self.drones = {}
 
         for crew_name, crew_params in config_json['repairing_crews'].items():
+            crew_params['responsibility'].insert(0, 0)
             self.crews[crew_name] = {
                 'crew' : RepairCrew(env,
                                     crew_name,
@@ -502,7 +505,7 @@ class Field(object):
 
             yield self.env.timeout(delta)
 
-            logger.log(explosion['Time'], explosion['Coordinates'], 'Взрыв', "взрыв типа {}".format(explosion['ID']))
+            logger.log(explosion['Time'], explosion['Coordinates'], 'avia', "взрыв типа {}".format(explosion['ID']))
 
             self.explosions[explosion['Coordinates']] = explosion
             for crew in self.crews.values():
@@ -560,6 +563,7 @@ def simulate(config_json):
     config.DRON_SPEED = params['drone_speed']
     config.DRON_FLIGHT_TIME = params['drone_flight_time']
     config.DRON_CHARGING_TIME = params['drone_charging_time']
+    params['repairing_time'].insert(0, 0)
     config.REPAIRING_TIME = params['repairing_time']
 
     def simulate_start(explosions_timetable):

@@ -6,10 +6,14 @@ from datetime import datetime, timedelta
 def generate_explosions_files(config):
     length = config['road_length']
 
-    d1 = (config['explosions_probability']['type_1'] * (length / 1000)) / 43200
-    d2 = (config['explosions_probability']['type_2'] * (length / 1000)) / 43200
-    d3 = (config['explosions_probability']['type_3'] * (length / 1000)) / 43200
-    d4 = (config['explosions_probability']['type_4'] * (length / 1000)) / 43200
+    probabilities = {}
+    for explosion in config['explosions']:
+        probabilities[explosion['id']] = (explosion['probability'] * (length / 1000)) / 43200
+    
+    d1 = probabilities[1]
+    d2 = probabilities[2]
+    d3 = probabilities[3]
+    d4 = probabilities[4]
     nothing = 1 - d1 - d2 - d3 - d4
 
     def generate_file(filename):

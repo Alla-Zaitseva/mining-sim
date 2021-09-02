@@ -1,399 +1,319 @@
 {
     "Events": [
         {
+            "ID": 2,
+            "Coordinates": 6641,
+            "Time": "00:05:46"
+        },
+        {
             "ID": 1,
-            "Coordinates": 38276,
-            "Time": "00:13:32"
+            "Coordinates": 23575,
+            "Time": "00:06:53"
         },
         {
             "ID": 4,
-            "Coordinates": 8800,
-            "Time": "00:17:53"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 10122,
-            "Time": "00:21:33"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 18269,
-            "Time": "00:31:00"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 30657,
-            "Time": "00:42:23"
+            "Coordinates": 10038,
+            "Time": "01:17:06"
         },
         {
             "ID": 3,
-            "Coordinates": 26040,
-            "Time": "00:54:21"
-        },
-        {
-            "ID": 2,
-            "Coordinates": 15464,
-            "Time": "00:58:31"
+            "Coordinates": 11829,
+            "Time": "01:33:29"
         },
         {
             "ID": 4,
-            "Coordinates": 39114,
-            "Time": "01:00:08"
-        },
-        {
-            "ID": 2,
-            "Coordinates": 27206,
-            "Time": "01:06:21"
-        },
-        {
-            "ID": 2,
-            "Coordinates": 37302,
-            "Time": "01:18:03"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 6433,
-            "Time": "01:36:57"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 22265,
-            "Time": "02:14:18"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 11706,
-            "Time": "02:18:53"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 25441,
-            "Time": "02:23:11"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 21302,
-            "Time": "02:24:34"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 6138,
-            "Time": "02:26:03"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 19425,
-            "Time": "02:51:44"
-        },
-        {
-            "ID": 2,
-            "Coordinates": 26056,
-            "Time": "03:06:34"
-        },
-        {
-            "ID": 2,
-            "Coordinates": 25105,
-            "Time": "03:13:05"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 35358,
-            "Time": "03:17:04"
+            "Coordinates": 25914,
+            "Time": "01:36:56"
         },
         {
             "ID": 3,
-            "Coordinates": 6267,
-            "Time": "03:48:46"
+            "Coordinates": 31043,
+            "Time": "01:40:10"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 16533,
+            "Time": "01:45:06"
         },
         {
             "ID": 4,
-            "Coordinates": 39952,
-            "Time": "03:59:53"
+            "Coordinates": 9254,
+            "Time": "02:05:34"
         },
         {
-            "ID": 3,
-            "Coordinates": 13590,
-            "Time": "04:11:40"
+            "ID": 1,
+            "Coordinates": 3101,
+            "Time": "02:42:33"
         },
         {
             "ID": 4,
-            "Coordinates": 31613,
-            "Time": "04:49:13"
+            "Coordinates": 8313,
+            "Time": "02:43:29"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 22310,
+            "Time": "02:49:04"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 2315,
+            "Time": "02:56:27"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 5471,
+            "Time": "03:04:02"
         },
         {
             "ID": 2,
-            "Coordinates": 16490,
-            "Time": "04:51:03"
+            "Coordinates": 19902,
+            "Time": "03:15:23"
         },
         {
             "ID": 4,
-            "Coordinates": 39436,
-            "Time": "04:51:11"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 23893,
-            "Time": "05:59:48"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 40000,
-            "Time": "06:03:36"
+            "Coordinates": 34341,
+            "Time": "03:21:30"
         },
         {
             "ID": 4,
-            "Coordinates": 39516,
-            "Time": "06:04:44"
+            "Coordinates": 38059,
+            "Time": "03:25:15"
         },
         {
             "ID": 4,
-            "Coordinates": 32770,
-            "Time": "06:21:30"
+            "Coordinates": 7381,
+            "Time": "03:33:04"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 14781,
+            "Time": "03:36:00"
         },
         {
             "ID": 4,
-            "Coordinates": 7440,
-            "Time": "06:24:52"
+            "Coordinates": 7447,
+            "Time": "03:36:34"
         },
         {
             "ID": 1,
-            "Coordinates": 22861,
-            "Time": "06:30:32"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 30815,
-            "Time": "06:31:17"
+            "Coordinates": 26165,
+            "Time": "03:59:09"
         },
         {
             "ID": 4,
-            "Coordinates": 34033,
-            "Time": "06:31:29"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 25561,
-            "Time": "06:37:39"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 31110,
-            "Time": "06:55:42"
+            "Coordinates": 31513,
+            "Time": "04:11:35"
         },
         {
             "ID": 3,
-            "Coordinates": 18245,
-            "Time": "07:12:46"
+            "Coordinates": 37307,
+            "Time": "04:29:09"
         },
         {
-            "ID": 4,
-            "Coordinates": 20983,
-            "Time": "07:19:50"
+            "ID": 1,
+            "Coordinates": 26611,
+            "Time": "04:35:27"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 11891,
+            "Time": "04:40:35"
         },
         {
             "ID": 3,
-            "Coordinates": 11780,
-            "Time": "07:22:23"
+            "Coordinates": 4131,
+            "Time": "05:01:51"
         },
         {
             "ID": 2,
-            "Coordinates": 19148,
-            "Time": "07:25:58"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 6584,
-            "Time": "07:27:51"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 39680,
-            "Time": "07:29:35"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 12470,
-            "Time": "07:47:49"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 39145,
-            "Time": "07:49:29"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 3975,
-            "Time": "07:56:52"
-        },
-        {
-            "ID": 3,
-            "Coordinates": 29807,
-            "Time": "08:02:25"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 37250,
-            "Time": "08:05:34"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 13662,
-            "Time": "08:12:06"
+            "Coordinates": 21966,
+            "Time": "05:06:56"
         },
         {
             "ID": 2,
-            "Coordinates": 20349,
-            "Time": "08:13:50"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 39187,
-            "Time": "08:18:48"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 37876,
-            "Time": "08:19:51"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 26015,
-            "Time": "08:25:16"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 27527,
-            "Time": "08:30:39"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 22788,
-            "Time": "08:32:16"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 1992,
-            "Time": "08:42:53"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 7241,
-            "Time": "09:11:50"
-        },
-        {
-            "ID": 2,
-            "Coordinates": 38204,
-            "Time": "09:15:00"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 24574,
-            "Time": "09:20:20"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 628,
-            "Time": "09:23:38"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 27309,
-            "Time": "09:25:03"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 2229,
-            "Time": "09:25:32"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 6406,
-            "Time": "09:40:00"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 38278,
-            "Time": "09:47:28"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 17866,
-            "Time": "09:48:10"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 6889,
-            "Time": "09:50:24"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 24799,
-            "Time": "09:52:05"
-        },
-        {
-            "ID": 4,
-            "Coordinates": 8769,
-            "Time": "10:12:27"
+            "Coordinates": 35797,
+            "Time": "05:21:21"
         },
         {
             "ID": 3,
-            "Coordinates": 15340,
-            "Time": "10:25:23"
+            "Coordinates": 1310,
+            "Time": "05:32:44"
         },
         {
             "ID": 1,
-            "Coordinates": 38571,
-            "Time": "10:27:54"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 12894,
-            "Time": "10:34:56"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 9679,
-            "Time": "10:35:31"
-        },
-        {
-            "ID": 2,
-            "Coordinates": 37529,
-            "Time": "10:40:25"
+            "Coordinates": 15163,
+            "Time": "05:57:14"
         },
         {
             "ID": 3,
-            "Coordinates": 34976,
-            "Time": "10:42:48"
+            "Coordinates": 3749,
+            "Time": "06:03:49"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 18556,
+            "Time": "06:22:42"
+        },
+        {
+            "ID": 3,
+            "Coordinates": 34198,
+            "Time": "06:38:14"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 24318,
+            "Time": "06:58:41"
         },
         {
             "ID": 4,
-            "Coordinates": 15063,
+            "Coordinates": 29583,
+            "Time": "07:04:25"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 19365,
+            "Time": "07:16:15"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 10336,
+            "Time": "07:23:26"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 1631,
+            "Time": "07:36:40"
+        },
+        {
+            "ID": 3,
+            "Coordinates": 31264,
+            "Time": "07:41:11"
+        },
+        {
+            "ID": 2,
+            "Coordinates": 5597,
+            "Time": "07:45:31"
+        },
+        {
+            "ID": 3,
+            "Coordinates": 14195,
+            "Time": "08:06:10"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 20304,
+            "Time": "08:18:57"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 8224,
+            "Time": "08:22:55"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 15320,
+            "Time": "08:36:42"
+        },
+        {
+            "ID": 2,
+            "Coordinates": 9281,
+            "Time": "08:38:48"
+        },
+        {
+            "ID": 3,
+            "Coordinates": 26014,
+            "Time": "08:44:15"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 21547,
+            "Time": "08:55:09"
+        },
+        {
+            "ID": 2,
+            "Coordinates": 4634,
+            "Time": "09:07:23"
+        },
+        {
+            "ID": 2,
+            "Coordinates": 73,
+            "Time": "09:18:25"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 1179,
+            "Time": "09:29:21"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 21366,
+            "Time": "09:42:56"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 34617,
+            "Time": "09:58:30"
+        },
+        {
+            "ID": 3,
+            "Coordinates": 313,
+            "Time": "10:03:50"
+        },
+        {
+            "ID": 3,
+            "Coordinates": 56,
+            "Time": "10:20:39"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 39175,
+            "Time": "10:35:59"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 8509,
+            "Time": "10:45:14"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 2033,
+            "Time": "10:46:59"
+        },
+        {
+            "ID": 3,
+            "Coordinates": 9118,
+            "Time": "10:54:32"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 34687,
+            "Time": "11:01:03"
+        },
+        {
+            "ID": 4,
+            "Coordinates": 16755,
+            "Time": "11:04:57"
+        },
+        {
+            "ID": 1,
+            "Coordinates": 3594,
             "Time": "11:05:46"
         },
         {
             "ID": 4,
-            "Coordinates": 39692,
-            "Time": "11:12:01"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 24683,
-            "Time": "11:28:24"
+            "Coordinates": 11373,
+            "Time": "11:14:08"
         },
         {
             "ID": 4,
-            "Coordinates": 5920,
-            "Time": "11:31:11"
+            "Coordinates": 17162,
+            "Time": "11:37:58"
         },
         {
-            "ID": 1,
-            "Coordinates": 13706,
-            "Time": "11:42:21"
-        },
-        {
-            "ID": 1,
-            "Coordinates": 39583,
-            "Time": "11:46:54"
+            "ID": 3,
+            "Coordinates": 1156,
+            "Time": "11:41:23"
         }
     ]
 }

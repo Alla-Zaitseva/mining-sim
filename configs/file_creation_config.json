@@ -2,10 +2,26 @@
     "filename_prefix" : "test/explosions_40_",
     "files_quantity" : 10,
     "road_length" : 40000,
-    "explosions_probability" : {
-        "type_1" : 0.6,
-        "type_2" : 0.2,
-        "type_3" : 0.3,
-        "type_4" : 0.7
-    }
+    "explosions" : [
+        {
+            "id": 1,
+            "probability": 0.6,
+            "name": "заграждение 1. МВЗ."
+          },
+          {
+            "id": 2,
+            "probability": 0.2,
+            "name": "заграждение 2. Разрушенные мостовые обьекты."
+          },
+          {
+            "id": 3,
+            "probability": 0.3,
+            "name": "заграждение 3. Разрушенное земляное полотно."
+          },
+          {
+            "id": 4,
+            "probability": 0.7,
+            "name": "заграждение 4. Скопления поврежденной техники."
+          }
+    ]
 }

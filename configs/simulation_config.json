@@ -1,13 +1,13 @@
 {
     "repairing_crews" : {
         "repairing_crew_1" : {
-            "responsibility" : [0, 1, 2]
+            "responsibility" : [1, 2]
         },
         "repairing_crew_2" : {
-            "responsibility" : [0, 3, 4]
+            "responsibility" : [3, 4]
         },
         "repairing_crew_3" : {
-            "responsibility" : [0, 1, 4]
+            "responsibility" : [1, 4]
         }
     },
     "drones" : {
@@ -27,7 +27,6 @@
         "drone_charging_time" : 900,
         "transit_speed" : 9,
         "repairing_time" : [
-            0,
             900,
             2700,
             1080,
